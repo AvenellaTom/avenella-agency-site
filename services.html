@@ -648,6 +648,18 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #navigation .nav__cta { white-space: nowrap; }
 @media (max-width: 520px) { #navigation .nav__cta { padding: 0 12px; min-height: 40px; font-size: 10px; letter-spacing: .08em; } #navigation .nav__cta > span[aria-hidden] { display: none; } #navigation .nav__logo { max-width: 132px; height: auto; } }
 </style>
+<style data-8b-part="premium">
+body::after { display: none !important; }
+.ph { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius-1); background: #2A241E; aspect-ratio: 16 / 10; box-shadow: 0 34px 60px -36px rgba(0,0,0,.6); }
+.ph img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); }
+.ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(224,120,95,.42), rgba(200,169,110,.12) 55%, rgba(32,27,22,.5)); mix-blend-mode: multiply; }
+.ph::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(246,244,241,.14); pointer-events: none; }
+.sv__side { display: grid; gap: 16px; align-self: start; }
+@media (min-width: 900px) { .sv__side { position: sticky; top: 96px; } .sv__card { position: static; } }
+.sv__card { border: 1px solid rgba(246,244,241,.13); background: linear-gradient(180deg, #312921 0%, #251F1A 100%); color: #F6F4F1; --sv-muted: rgba(246,244,241,.7); --sv-line: rgba(246,244,241,.13); box-shadow: 0 34px 60px -36px rgba(0,0,0,.6); }
+.sv--light .sv__card { background: #201B16; border-color: transparent; box-shadow: 0 34px 56px -32px rgba(32,27,22,.6); }
+.sv__best { background: rgba(246,244,241,.05); }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -694,11 +706,14 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     <ul class="sv__tags"><li class="m-badge">Audits</li><li class="m-badge">Positioning</li><li class="m-badge">Naming &amp; messaging</li><li class="m-badge">Identity</li></ul>
     <a class="m-link sv__link" href="contact.html"><span class="m-link__label">Talk to us about brand and strategy</span><span aria-hidden="true">&#8594;</span></a>
   </div>
+  <div class="sv__side">
+  <figure class="ph "><img src="https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure>
   <aside class="sv__card" aria-label="What is included in brand and strategy">
     <p class="sv__label">What's included</p>
     <ul class="sv__inc"><li>Full brand audits</li><li>Messaging frameworks</li><li>Market and competitor positioning</li><li>Brand Strategy Sprint</li><li>AI Marketing Audit</li><li>Naming and voice development</li></ul>
     <div class="sv__best"><p class="sv__label">Best for</p><p>Businesses whose marketing feels busy but is not converting, or brands entering a new market that need positioning done properly first.</p></div>
   </aside>
+  </div>
 </section>
 <section class="sv sv--dark" id="websites" aria-labelledby="websites-title">
   <div class="sv__main">
@@ -711,11 +726,14 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     <a class="m-link sv__link" href="website-services.html"><span class="m-link__label">See website plans and pricing</span><span aria-hidden="true">&#8594;</span></a>
     <a class="m-link sv__link sv__link--2" href="contact.html"><span class="m-link__label">Talk to us about websites</span><span aria-hidden="true">&#8594;</span></a>
   </div>
+  <div class="sv__side">
+  <figure class="ph "><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure>
   <aside class="sv__card" aria-label="What is included in websites">
     <p class="sv__label">What's included</p>
     <ul class="sv__inc"><li>Full website design and build</li><li>Managed monthly plans</li><li>Landing pages and microsites</li><li>WooCommerce and e-commerce</li><li>SEO optimisation</li><li>Conversion rate optimisation</li><li>Website copywriting</li><li>Migrations and rebuilds</li></ul>
     <div class="sv__best"><p class="sv__label">Best for</p><p>Businesses whose website does not reflect the quality of what they actually do. Or worse, is not bringing in any leads at all.</p></div>
   </aside>
+  </div>
 </section>
 <section class="sv sv--light" id="content" aria-labelledby="content-title">
   <div class="sv__main">
@@ -727,11 +745,14 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     <ul class="sv__tags"><li class="m-badge">SEO</li><li class="m-badge">Campaigns</li><li class="m-badge">Editorial</li><li class="m-badge">Paid media</li></ul>
     <a class="m-link sv__link" href="contact.html"><span class="m-link__label">Talk to us about content and campaigns</span><span aria-hidden="true">&#8594;</span></a>
   </div>
+  <div class="sv__side">
+  <figure class="ph "><img src="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure>
   <aside class="sv__card" aria-label="What is included in content and campaigns">
     <p class="sv__label">What's included</p>
     <ul class="sv__inc"><li>Campaign planning and execution</li><li>Content strategy and calendars</li><li>Copywriting and editorial</li><li>Shoot direction and production</li><li>SEO content production</li><li>Paid media management</li></ul>
     <div class="sv__best"><p class="sv__label">Best for</p><p>Brands that want consistent, high-quality output without managing freelancers, briefing in-house teams or sacrificing standards.</p></div>
   </aside>
+  </div>
 </section>
 <section class="sv sv--dark" id="social" aria-labelledby="social-title">
   <div class="sv__main">
@@ -743,11 +764,14 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     <ul class="sv__tags"><li class="m-badge">Strategy</li><li class="m-badge">Content</li><li class="m-badge">Community</li><li class="m-badge">Reporting</li></ul>
     <a class="m-link sv__link" href="contact.html"><span class="m-link__label">Talk to us about social media</span><span aria-hidden="true">&#8594;</span></a>
   </div>
+  <div class="sv__side">
+  <figure class="ph "><img src="https://images.unsplash.com/photo-1690883793939-f8cca2f28ee0?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure>
   <aside class="sv__card" aria-label="What is included in social media">
     <p class="sv__label">What's included</p>
     <ul class="sv__inc"><li>Social media strategy</li><li>Content planning and creation</li><li>Community management</li><li>Monthly reporting</li></ul>
     <div class="sv__best"><p class="sv__label">Best for</p><p>Businesses whose channels are active but not yet doing a job for the business.</p></div>
   </aside>
+  </div>
 </section>
 <section class="sv sv--light" id="ai" aria-labelledby="ai-title">
   <div class="sv__main">
@@ -759,11 +783,14 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     <ul class="sv__tags"><li class="m-badge">AI assistants</li><li class="m-badge">Automation</li><li class="m-badge">Knowledge bases</li><li class="m-badge">Connected tools</li></ul>
     <a class="m-link sv__link" href="contact.html"><span class="m-link__label">Talk to us about AI systems</span><span aria-hidden="true">&#8594;</span></a>
   </div>
+  <div class="sv__side">
+  <figure class="ph "><img src="https://images.unsplash.com/photo-1758073519996-6d3c63b4922c?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure>
   <aside class="sv__card" aria-label="What is included in AI systems">
     <p class="sv__label">What's included</p>
     <ul class="sv__inc"><li>AI knowledge bases and RAG builds</li><li>Community management automation</li><li>Internal AI tools and workflows</li><li>Content automation systems</li><li>Three-week delivery</li><li>Full documentation and handover</li></ul>
     <div class="sv__best"><p class="sv__label">Best for</p><p>Teams drowning in repetitive work, or businesses sitting on knowledge that should be working harder for them.</p></div>
   </aside>
+  </div>
 </section>
 <section class="svc" id="next" aria-labelledby="svc-title">
   <div class="svc__lead">

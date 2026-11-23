@@ -720,6 +720,22 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 .wp-card .wp-calc__save { font-size: clamp(46px, 4.4vw, 62px); line-height: 1; color: #C4623A; }
 .wp-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
 </style>
+<style data-8b-part="premium">
+body::after { display: none !important; }
+.ph { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius-1); background: #2A241E; aspect-ratio: 16 / 10; box-shadow: 0 34px 60px -36px rgba(0,0,0,.6); }
+.ph img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); }
+.ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(224,120,95,.42), rgba(200,169,110,.12) 55%, rgba(32,27,22,.5)); mix-blend-mode: multiply; }
+.ph::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(246,244,241,.14); pointer-events: none; }
+.wp__split { display: grid; gap: clamp(28px, 4vw, 64px); align-items: center; }
+@media (min-width: 900px) { .wp__split { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+.wp-card { border: 1px solid rgba(246,244,241,.13); background: linear-gradient(180deg, #312921 0%, #251F1A 100%); color: #F6F4F1; --wp-muted: rgba(246,244,241,.72); --wp-line: rgba(246,244,241,.13); --wp-acc: #D89166; box-shadow: 0 34px 60px -36px rgba(0,0,0,.6); }
+.wp--light .wp-card { background: #201B16; border-color: transparent; box-shadow: 0 34px 56px -32px rgba(32,27,22,.6); }
+.wp--light .wp-card p strong, .wp--dark .wp-card p strong { color: #F6F4F1; }
+.wp-card .wp-calc__save { color: #E3A27C; }
+.wp-calc__bar { background: rgba(246,244,241,.14); }
+.wp-plan.is-feat { background: linear-gradient(#2A231D, #2A231D) padding-box, var(--grad) border-box; border: 2px solid transparent; }
+.wp-table { background: linear-gradient(180deg, #312921 0%, #251F1A 100%); }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -749,7 +765,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </header>
 <main id="main">
 <section class="svh wph" id="top" aria-labelledby="wph-title">
-  <div class="svh__bg" aria-hidden="true"><img src="hero-agency.jpg" alt=""></div>
+  <div class="svh__bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&amp;fit=crop&amp;w=2000&amp;q=70" alt="" onerror="this.src='hero-agency.jpg';this.onerror=null"></div>
   <div class="svh__inner">
     <h1 class="m-text-3 svh__title wph__title" id="wph-title">Your website.<br>Built, managed, sorted<span class="m-dot" aria-hidden="true"></span></h1>
     <p class="m-text-5 svh__lead">One fixed setup fee. Three monthly plans. Hosting, domain and human-managed care included. And no contracts to trap you in.</p>
@@ -766,7 +782,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </section>
 
 <section class="wp wp--light" id="why" aria-labelledby="why-title">
-  <header class="wp__head"><p class="wp__k">The real cost of DIY</p><h2 class="wp__title" id="why-title">Wix looks cheap.<br>Until it doesn't<span class="m-dot" aria-hidden="true"></span></h2><p class="m-text-5 wp__lead">The subscription fee is the smallest number on the bill. Here is what the research actually says.</p></header>
+  <div class="wp__split"><header class="wp__head"><p class="wp__k">The real cost of DIY</p><h2 class="wp__title" id="why-title">Wix looks cheap.<br>Until it doesn't<span class="m-dot" aria-hidden="true"></span></h2><p class="m-text-5 wp__lead">The subscription fee is the smallest number on the bill. Here is what the research actually says.</p></header><figure class="ph "><img src="https://images.unsplash.com/photo-1487338875411-8880f74114a2?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure></div>
   <div class="wp-grid3">
     <article class="wp-card"><span class="wp-card__n">01</span><h3 class="m-text-7">Your time has a price tag</h3><p>Owners managing their own site spend <strong>8 to 12 hours a month</strong> on updates, backups and fixes. At even <span class="cp" data-p="30">£30</span> an hour that is <strong><span class="cp" data-p="240">£240</span> to <span class="cp" data-p="360">£360</span> a month</strong> in lost productivity. More than our top plan.</p></article>
     <article class="wp-card"><span class="wp-card__n">02</span><h3 class="m-text-7">Website downtime costs thousands</h3><p>Emergency malware removal runs <strong><span class="cp" data-p="75">£75</span> to <span class="cp" data-p="150">£150</span> an hour</strong> in the UK. Full recovery from data loss without a backup? <strong><span class="cp" data-p="500">£500</span> to <span class="cp" data-p="5000">£5,000</span></strong>, plus weeks offline and months of search ranking damage.</p></article>
@@ -797,9 +813,9 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </section>
 
 <section class="wp wp--light" id="no-lock-in" aria-labelledby="nl-title">
-  <header class="wp__head"><p class="wp__k">No contracts</p><h2 class="wp__title" id="nl-title">Monthly plans with<br>no lock-in<span class="m-dot" aria-hidden="true"></span></h2><p class="m-text-5 wp__lead">Monthly plans run with no fixed contract. Give us 30 days notice and we close the account cleanly. <strong>You leave with a holding page, yours to keep.</strong> One-off builds are delivered as a project with clear milestones.</p>
+  <div class="wp__split"><header class="wp__head"><p class="wp__k">No contracts</p><h2 class="wp__title" id="nl-title">Monthly plans with<br>no lock-in<span class="m-dot" aria-hidden="true"></span></h2><p class="m-text-5 wp__lead">Monthly plans run with no fixed contract. Give us 30 days notice and we close the account cleanly. <strong>You leave with a holding page, yours to keep.</strong> One-off builds are delivered as a project with clear milestones.</p>
   <ul class="wp-chips"><li class="m-badge">30 day notice</li><li class="m-badge">Holding page on exit</li><li class="m-badge">Domain stays yours</li><li class="m-badge">No cancellation fees</li></ul>
-  <a class="m-link" href="contact.html"><span class="m-link__label">Start with a conversation</span><span aria-hidden="true">&#8594;</span></a></header>
+  <a class="m-link" href="contact.html"><span class="m-link__label">Start with a conversation</span><span aria-hidden="true">&#8594;</span></a></header><figure class="ph "><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="" loading="lazy" onerror="this.closest('figure').remove()"></figure></div>
 </section>
 
 <section class="svc" id="next" aria-labelledby="svc-title">

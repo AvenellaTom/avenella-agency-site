@@ -683,6 +683,18 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #navigation .menu__top { display: none; }
 @media (prefers-reduced-motion: reduce) { #navigation .nav__burger path { transition: none; } }
 </style>
+<style data-8b-part="round-10">
+body::after { display: none !important; }
+#work .case, #insights .insight { background-image: none; }
+#work .case { background: linear-gradient(180deg, #312921 0%, #251F1A 100%); color: #F6F4F1; border: 1px solid rgba(246,244,241,.13); box-shadow: 0 34px 64px -40px #000; }
+#work .case--svc .svc-line, #work .case--svc .svc-tags { color: rgba(246,244,241,.74); }
+#work .case--svc .svc-media { background: #2A241E; }
+#work .case--svc .svc-media img, #insights .insight__media img { filter: grayscale(1) contrast(1.08); }
+#work .case--svc .svc-media::after, #insights .insight__media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg, rgba(224,120,95,.42), rgba(200,169,110,.12) 55%, rgba(32,27,22,.5)); mix-blend-mode: multiply; }
+#insights .insight { background: #201B16; color: #F6F4F1; border: 0; box-shadow: 0 34px 56px -32px rgba(32,27,22,.6); }
+#insights .insight__read { color: rgba(246,244,241,.62); }
+#insights .insight__meta { color: #D89166; }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -770,7 +782,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     <div class="work__window">
       <ul class="work__track" data-8b-items=":scope > .case">
         <li class="case case--svc">
-          <div class="svc-media"><img src="work-kasp.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need a website that works harder."</span>
             <h3 class="m-text-4">Websites &amp; digital products<span class="m-dot" aria-hidden="true"></span></h3>
@@ -779,7 +791,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           </div>
         </li>
         <li class="case case--svc">
-          <div class="svc-media"><img src="work-visa.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need to get people interested."</span>
             <h3 class="m-text-4">Content &amp; campaigns<span class="m-dot" aria-hidden="true"></span></h3>
@@ -788,7 +800,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           </div>
         </li>
         <li class="case case--svc">
-          <div class="svc-media"><img src="work-latifa.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need my brand sorted."</span>
             <h3 class="m-text-4">Brand &amp; strategy<span class="m-dot" aria-hidden="true"></span></h3>
@@ -797,7 +809,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           </div>
         </li>
         <li class="case case--svc">
-          <div class="svc-media"><img src="work-pierluigis.gif" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1690883793939-f8cca2f28ee0?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need our channels run properly."</span>
             <h3 class="m-text-4">Social media management<span class="m-dot" aria-hidden="true"></span></h3>
@@ -806,7 +818,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           </div>
         </li>
         <li class="case case--svc">
-          <div class="svc-media"><img src="work-zorazenith.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1758073519996-6d3c63b4922c?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need to make work work better."</span>
             <h3 class="m-text-4">AI &amp; smarter systems<span class="m-dot" aria-hidden="true"></span></h3>
