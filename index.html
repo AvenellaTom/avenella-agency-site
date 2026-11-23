@@ -155,7 +155,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:hero">
 @layer sections {
-#hero { --ap: min(74vw, 44svh); position: relative; z-index: 3; display: grid; grid-template-rows: 1fr auto; min-height: max(100svh, 560px); padding: 0 var(--bleed); background: var(--page); color: var(--ink); overflow: clip visible; transition: background .4s ease, color .4s ease; }
+#hero { --ap: min(74vw, 44svh); isolation: isolate; position: relative; z-index: 10; display: grid; grid-template-rows: 1fr auto; min-height: max(100svh, 560px); padding: 0 var(--bleed); background: var(--page); color: var(--ink); overflow: clip visible; transition: background .4s ease, color .4s ease; }
 #hero .hero__intro { display: grid; justify-items: start; align-content: start; gap: 18px; max-width: 34rem; padding-top: clamp(92px, 14svh, 150px); }
 #hero .hero__lead { color: var(--ink); }
 #hero .hero__title { position: static; align-self: end; padding-bottom: clamp(18px, 5svh, 52px); white-space: nowrap; }
@@ -169,8 +169,8 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 #hero .hero__orbit { position: absolute; inset: -9%; display: block; border-radius: var(--radius-2); border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
 #hero .hero__moon { position: absolute; left: 50%; top: 0; width: 9%; height: 9%; margin: -4.5% 0 0 -4.5%; border-radius: var(--radius-2); background: var(--color-3); }
 #hero .hero__bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
-#hero .hero__bg img, #hero .hero__bg video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); opacity: .4; }
-#hero .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--page) 80%, transparent), color-mix(in srgb, var(--page) 26%, transparent) 55%, color-mix(in srgb, var(--page) 60%, transparent)), linear-gradient(0deg, color-mix(in srgb, var(--page) 90%, transparent), transparent 46%); }
+#hero .hero__bg img, #hero .hero__bg video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); opacity: 1; }
+#hero .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--page) 62%, transparent), color-mix(in srgb, var(--page) 16%, transparent) 55%, color-mix(in srgb, var(--page) 38%, transparent)), linear-gradient(0deg, color-mix(in srgb, var(--page) 78%, transparent), transparent 48%); }
 @media (min-width: 900px) and (orientation: landscape) {
   #hero { --ap: min(36vw, 60svh); }
   #hero .hero__title { font-size: min(26.5vw, 43svh); }
