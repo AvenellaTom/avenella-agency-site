@@ -312,7 +312,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 #footer .footer__cta { position: relative; display: inline-flex; align-items: baseline; font-family: var(--font-1); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; font-size: clamp(46px, 9vw, 124px); text-decoration: none; color: #F6F4F1; }
 #footer .footer__cta .m-dot { width: 0.16em; height: 0.16em; }
 #footer .footer__star { position: absolute; top: -6px; right: 2px; width: clamp(32px, 4vw, 52px); height: clamp(32px, 4vw, 52px); }
-#footer .footer__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; margin-top: clamp(44px, 7vh, 80px); padding-top: 34px; border-top: 1px solid color-mix(in srgb, #F6F4F1 14%, transparent); }
+#footer .footer__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; margin-top: clamp(44px, 7vh, 80px); padding-top: 34px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 32%, transparent); }
 #footer .footer__brand p { color: rgba(246,244,241,.58); max-width: 32ch; margin-top: 14px; }
 #footer .footer__group { margin-top: 14px; font-size: 13px; font-weight: 600; color: rgba(246,244,241,.72); }
 #footer .footer__wordmark { font-family: var(--font-1); font-weight: 800; font-size: 20px; letter-spacing: -0.04em; }
@@ -320,7 +320,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 #footer .footer__col { display: grid; align-content: start; gap: 10px; }
 #footer .footer__label { margin-bottom: 4px; color: var(--color-3); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; }
 #footer .footer__col a, #footer .footer__col span { color: rgba(246,244,241,.78); }
-#footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(30px, 5vh, 52px); padding-top: 22px; border-top: 1px solid color-mix(in srgb, #F6F4F1 12%, transparent); color: rgba(246,244,241,.5); }
+#footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(30px, 5vh, 52px); padding-top: 22px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 28%, transparent); color: rgba(246,244,241,.5); }
 #footer .footer__legal a { color: rgba(246,244,241,.5); }
 #footer .footer__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; filter: drop-shadow(0 0 7px color-mix(in srgb, var(--color-3) 60%, transparent)); }
 @media (min-width: 820px) { #footer .footer__grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; } }
@@ -375,6 +375,42 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 .tf__done { display: none; gap: 10px; align-content: start; flex: 1; }
 .tf.is-done .tf__steps, .tf.is-done .tf__foot, .tf.is-done .tf__progress { display: none; }
 .tf.is-done .tf__done { display: grid; }
+}
+</style>
+<style data-8b-part="neat">
+@layer atoms {
+/* circular stamp sticker (Monty-style) */
+.stamp { position: relative; display: grid; place-items: center; text-align: center; width: clamp(104px, 11vw, 134px); height: clamp(104px, 11vw, 134px); border-radius: 50%; padding: 16px; background: #0B0B0D; color: var(--color-2); font-family: var(--font-1); font-weight: 700; text-transform: uppercase; font-size: clamp(11px, 1vw, 13px); line-height: 1.04; letter-spacing: 0.02em; box-shadow: 6px 6px 0 rgba(11,11,13,.28); transform: rotate(-7deg); }
+.stamp--outline { background: transparent; border: 1.5px solid currentColor; box-shadow: 6px 6px 0 color-mix(in srgb, currentColor 22%, transparent); }
+.stamp__star { position: absolute; top: -10px; right: -10px; width: 26px; height: 26px; }
+/* dotted "you can also" block */
+#contact .contact__kicker { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 20px; font-family: var(--font-2); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #0B0B0D; }
+#contact .contact__kicker::before { content: ""; width: 34px; height: 1.5px; background: #0B0B0D; }
+#contact .contact__also { margin-top: 4px; border-top: 1.5px dotted color-mix(in srgb, #0B0B0D 42%, transparent); border-bottom: 1.5px dotted color-mix(in srgb, #0B0B0D 42%, transparent); }
+#contact .contact__also-label { padding: 12px 0 2px; font-family: var(--font-2); font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: color-mix(in srgb, #0B0B0D 62%, transparent); }
+#contact .contact__also-cols { display: grid; grid-template-columns: minmax(0, 1fr); }
+#contact .contact__also-cols > div { padding: 16px 0; }
+#contact .contact__also-cols dt { font-family: var(--font-2); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: color-mix(in srgb, #0B0B0D 60%, transparent); margin-bottom: 7px; }
+#contact .contact__also-cols dd { font-family: var(--font-1); font-weight: 700; font-size: clamp(16px, 1.5vw, 20px); letter-spacing: -0.02em; }
+#contact .contact__also-cols dd a { text-decoration: none; }
+@media (min-width: 560px) {
+  #contact .contact__also-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #contact .contact__also-cols > div { padding: 16px 0 16px 20px; border-left: 1.5px dotted color-mix(in srgb, #0B0B0D 38%, transparent); }
+  #contact .contact__also-cols > div:first-child { padding-left: 0; border-left: 0; }
+}
+/* big spinning ring CTA with centre arrow */
+#contact .cta-ring { position: absolute; top: clamp(16px, 3vw, 44px); right: var(--space-1); width: clamp(112px, 12vw, 158px); height: clamp(112px, 12vw, 158px); display: grid; place-items: center; text-decoration: none; color: #0B0B0D; z-index: 3; }
+#contact .cta-ring__spin { position: absolute; inset: 0; animation: spin 22s linear infinite; }
+#contact .cta-ring__spin svg { width: 100%; height: 100%; overflow: visible; }
+#contact .cta-ring__spin text { font-family: var(--font-2); font-size: 8px; font-weight: 700; letter-spacing: 0.04em; fill: #0B0B0D; }
+#contact .cta-ring__arrow { position: relative; display: grid; place-items: center; width: 34%; height: 34%; border-radius: 50%; background: #0B0B0D; }
+#contact .cta-ring__arrow svg { width: 46%; height: 46%; fill: none; stroke: var(--color-2); stroke-width: 2; }
+@media (hover: hover) { #contact .cta-ring:hover .cta-ring__arrow { transform: scale(1.08); transition: transform .25s; } }
+@media (prefers-reduced-motion: reduce) { #contact .cta-ring__spin { animation: none; } }
+@media (max-width: 760px) { #contact .cta-ring { display: none; } }
+/* footer stamp */
+#footer .stamp { position: absolute; top: clamp(70px, 10vh, 118px); right: var(--space-1); color: var(--color-2); z-index: 2; }
+@media (max-width: 760px) { #footer .stamp { display: none; } }
 }
 </style>
 <style data-8b-part="motion">
@@ -708,19 +744,24 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 
 <!-- contact -->
 <section id="contact" data-8b-section="contact" aria-labelledby="contact-title">
-  <div class="contact__wheel badge-spin" aria-hidden="true">
-    <div class="badge-spin__ring"><svg viewBox="0 0 100 100"><defs><path id="avRing2" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"></path></defs><text><textPath href="#avRing2" startOffset="0" textLength="232" lengthAdjust="spacingAndGlyphs">LET'S BUILD SOMETHING GOOD &#183; DIRECTOR-LED &#183; </textPath></text></svg></div>
-    <div class="badge-spin__core"><svg viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="#0B0B0D"></path></svg></div>
-  </div>
+  <a class="cta-ring" href="#tf" aria-label="Start a project">
+    <span class="cta-ring__spin"><svg viewBox="0 0 100 100"><defs><path id="avRing2" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"></path></defs><text><textPath href="#avRing2" startOffset="0" textLength="232" lengthAdjust="spacingAndGlyphs">START A PROJECT &#183; LET'S TALK &#183; </textPath></text></svg></span>
+    <span class="cta-ring__arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
+  </a>
   <h2 class="m-text-3 contact__title" id="contact-title" style="--len:10"><span class="contact__voice">Let's talk</span><span class="m-dot" aria-hidden="true"></span></h2>
   <div class="contact__grid">
     <div class="contact__info">
+      <span class="contact__kicker">Get in touch</span>
       <p class="m-text-5 contact__lead">Tell us what you are making. A real person reads every message, and you hear back from one of us directly.</p>
-      <a class="contact__mail" href="mailto:tom@avenella.co.uk"><span>tom@avenella.co.uk</span></a>
-      <dl class="contact__places">
-        <div><dt class="m-text-7">London</dt><dd class="m-text">United Kingdom</dd></div>
-        <div><dt class="m-text-7">Dubai</dt><dd class="m-text">United Arab Emirates</dd></div>
-      </dl>
+      <div class="contact__also">
+        <div class="contact__also-label">You can also</div>
+        <dl class="contact__also-cols">
+          <div><dt>Email</dt><dd><a href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a></dd></div>
+          <div><dt>London</dt><dd>United Kingdom</dd></div>
+          <div><dt>Dubai</dt><dd>United Arab Emirates</dd></div>
+        </dl>
+      </div>
+      <span class="stamp" aria-hidden="true">Director-led, always<svg class="stamp__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></span>
     </div>
     <form class="tf" id="tf" novalidate aria-label="Start a project">
       <div class="tf__progress"><span class="tf__bar" id="tfBar"></span></div>
