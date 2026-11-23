@@ -702,6 +702,24 @@ body::after { display: none !important; }
 #navigation .nav__logo, #navigation .nav__brand img { width: clamp(190px, 17vw, 250px); height: auto; max-width: none; margin-block: -16px; }
 @media (max-width: 520px) { #navigation .nav__logo, #navigation .nav__brand img { width: 132px; max-width: 132px; margin-block: -8px; } }
 </style>
+<style data-8b-part="round-11">
+#clients { --page: #201B16; --ink: #F6F4F1; padding: clamp(40px, 7vh, 76px) 0; background: #201B16 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.93 0 0 0 0 0.88 0 0 0 0.5 -0.18'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E"); border-block: 1px solid rgba(246,244,241,.12); }
+#clients .clients__row { gap: clamp(48px, 7vw, 104px); }
+#clients .clients__logo { height: clamp(38px, 4.4vw, 56px); max-width: clamp(170px, 18vw, 250px); filter: none; opacity: .88; }
+#clients .clients__logo:hover { opacity: 1; }
+@media (max-width: 899px), (orientation: portrait) {
+  [data-8b-live] #work .case { aspect-ratio: auto; width: min(80vw, 380px); }
+  #work .case--svc { grid-template-rows: 30% minmax(0, 1fr); }
+  #work .case--svc .svc-media { aspect-ratio: auto; height: 100%; }
+  #work .case--svc .svc-body { min-height: 0; overflow: hidden; gap: 8px; padding: 16px 18px 18px; justify-content: flex-start; }
+  #work .case--svc .svc-ask { font-size: 14px; }
+  #work .case--svc h3 { font-size: clamp(24px, 6.6vw, 30px); }
+  #work .case--svc .svc-line { font-size: 15px; line-height: 1.45; }
+  #work .case--svc .svc-tags { flex-wrap: nowrap; overflow: hidden; flex: none; margin-top: auto; -webkit-mask-image: linear-gradient(90deg, #000 78%, transparent); mask-image: linear-gradient(90deg, #000 78%, transparent); }
+  #work .case--svc .svc-tags li { flex: none; }
+  #work .work__lead { font-size: 15px; }
+}
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -1011,7 +1029,7 @@ body::after { display: none !important; }
   const row = document.querySelector('#clients .clients__row');
   if (!row) return;
   const n = +row.dataset.count || 20;
-  const fill = () => { for (let i = 1; i <= n; i++) { const img = document.createElement('img'); img.className = 'clients__logo'; img.src = 'client-logo-' + i + '.png'; img.alt = ''; img.loading = 'lazy'; img.onerror = () => img.remove(); img.onload = () => row.closest('#clients').classList.add('has-logos'); row.appendChild(img); } };
+  const fill = () => { for (let i = 1; i <= n; i++) { const img = document.createElement('img'); img.className = 'clients__logo'; img.src = 'client-logo-' + i + '.png'; img.alt = ''; img.onerror = () => img.remove(); img.onload = () => row.closest('#clients').classList.add('has-logos'); row.appendChild(img); } };
   fill(); fill();
 })();
 </script>
