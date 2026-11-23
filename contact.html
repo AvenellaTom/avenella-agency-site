@@ -538,18 +538,37 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #navigation .nav__menu:hover { color: #201B16; }
 </style>
 <style data-8b-part="nav-v2">
-#navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 12px var(--space-1); pointer-events: auto; background: color-mix(in srgb, #201B16 84%, transparent); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid color-mix(in srgb, #F6F4F1 10%, transparent); }
+#navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 12px var(--space-1); pointer-events: auto; background: linear-gradient(180deg, #FFFFFF 0%, #F8F7F4 100%); border-bottom: 1px solid rgba(32,27,22,.1); box-shadow: 0 10px 30px -22px rgba(32,27,22,.55); }
 #navigation .nav__links { display: none; }
-#navigation .nav__menu { order: 1; justify-self: start; display: inline-grid; place-items: center; width: 46px; height: 46px; min-height: 0; padding: 0; border-radius: 12px; border: 1.5px solid color-mix(in srgb, #F6F4F1 38%, transparent); background: transparent; color: #F6F4F1; }
+#navigation .nav__menu { order: 1; justify-self: start; display: inline-grid; place-items: center; width: 46px; height: 46px; min-height: 0; padding: 0; border-radius: 0; border: 1.5px solid #C4623A; background: transparent; color: #C4623A; transition: background .3s; }
 #navigation .nav__menu::before, #navigation .nav__menu::after { display: none; }
-#navigation .nav__menu:hover { border-color: var(--color-3); color: #F6F4F1; }
+#navigation .nav__menu:hover { background: rgba(216,145,102,.16); color: #C4623A; }
 #navigation .nav__burger { display: grid; gap: 6px; }
-#navigation .nav__burger i { display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor; }
+#navigation .nav__burger i { display: block; width: 22px; height: 2.5px; background: currentColor; }
 #navigation .nav__brand { order: 2; justify-self: center; background: transparent; padding: 0; min-height: 46px; }
-#navigation .nav__logo { height: clamp(18px, 2vw, 23px); filter: drop-shadow(0 3px 10px rgba(0,0,0,.45)); }
-#navigation .nav__cta { order: 3; justify-self: end; display: inline-flex; min-height: 44px; box-shadow: none; }
-@media (max-width: 520px) { #navigation .nav__cta { padding: 0 14px 0 12px; font-size: 14px; } }
+#navigation .nav__logo { height: clamp(19px, 2.1vw, 25px); }
+#navigation .nav__cta { order: 3; justify-self: end; display: inline-flex; gap: 10px; min-height: 44px; padding: 0 24px; background: transparent; border: 1.5px solid #C4623A; color: #201B16; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; box-shadow: none; transition: background .3s, box-shadow .3s; }
+#navigation .nav__cta::before, #navigation .nav__cta::after { display: none; }
+#navigation .nav__cta:hover { background: var(--grad); box-shadow: 0 8px 22px rgba(216,145,102,.4); }
+@media (max-width: 520px) { #navigation .nav__cta { padding: 0 14px; letter-spacing: 0.1em; } }
 .nav-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+#navigation .menu { position: fixed; inset: 0; z-index: 80; display: flex; flex-direction: column; justify-content: flex-start; padding: clamp(96px,10vw,124px) clamp(24px,7vw,88px) clamp(32px,6vw,72px); background: linear-gradient(rgba(32,27,22,.9), rgba(32,27,22,.9)), url(texture-dark.jpg) center / cover; color: #F6F4F1; overflow-y: auto; }
+#navigation .menu[hidden] { display: none; }
+#navigation .menu__glow { position: absolute; right: -12%; top: -14%; width: 76%; height: 72%; background: radial-gradient(ellipse at center, rgba(216,145,102,.3) 0%, rgba(216,145,102,0) 62%); pointer-events: none; }
+#navigation .menu__top { position: fixed; top: 22px; left: clamp(24px,7vw,88px); z-index: 4; display: block; }
+#navigation .menu__close { display: flex; align-items: center; gap: 14px; padding: 10px 0; border: 0; background: none; color: #F6F4F1; font-family: var(--font-2); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; cursor: pointer; }
+#navigation .menu__close:hover { color: var(--color-3); }
+#navigation .menu__close svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 3; }
+#navigation .menu__list { position: relative; display: flex; flex-direction: column; gap: 6px; margin-block: auto; align-self: flex-start; }
+#navigation .menu__list a { display: flex; align-items: center; gap: 22px; padding: 6px 22px 6px 12px; border: 2px solid transparent; font-size: 16px; line-height: 1; letter-spacing: 0; text-decoration: none; transition: transform .25s; }
+#navigation .menu__list a:hover { transform: translateX(12px); }
+#navigation .menu__list li:first-child a { border-color: var(--color-3); color: var(--color-3); }
+#navigation .menu__n { font-family: var(--font-2); font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--color-3); }
+#navigation .menu__t { font-family: var(--font-1); font-weight: 800; font-size: clamp(32px, 5.4vw, 64px); line-height: 1.06; letter-spacing: -0.04em; }
+#navigation .menu__foot { position: relative; margin-top: clamp(30px,4vw,54px); display: flex; flex-wrap: wrap; gap: 16px 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,244,241,.7); }
+#navigation .menu__foot a { color: inherit; text-decoration: none; }
+/* photographic texture: dark surfaces */
+#footer { background: linear-gradient(rgba(32,27,22,.9), rgba(32,27,22,.9)), url(texture-dark.jpg) center / cover; }
 </style>
 <style data-8b-part="round-7">
 #footer { border-top: 0; padding-top: clamp(56px, 8vh, 92px); }
@@ -563,7 +582,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
 <header id="navigation" class="nav" data-8b-section="navigation">
-  <a class="nav__brand" href="index.html" aria-label="The Avenella Agency, back to the top"><img class="nav__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></a>
+  <a class="nav__brand" href="index.html" aria-label="The Avenella Agency, back to the top"><img class="nav__logo" src="logo-agency-onlight.png" alt="The Avenella Agency" width="485" height="72"></a>
   <nav class="nav__links" aria-label="Main">
     <ul data-8b-items=":scope > li">
       <li><a class="m-link-2" href="index.html#work">Services</a></li>
@@ -571,17 +590,19 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
       <li><a class="m-link-2" href="index.html#insights">Insights</a></li>
     </ul>
   </nav>
-  <a class="m-btn nav__cta" href="#contact"><span class="m-btn__label">Let's talk</span></a>
+  <a class="m-btn nav__cta" href="#contact"><span class="m-btn__label">Let's talk</span><span aria-hidden="true">&#8594;</span></a>
   <button class="m-btn-2 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="nav__burger" aria-hidden="true"><i></i><i></i></span><span class="nav-sr">Menu</span></button>
   <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-    <div class="menu__top"><button class="m-icon menu__close" type="button" aria-label="Close the menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13"/></svg></button></div>
-    <ul class="menu__list" data-8b-items=":scope > li">
-      <li><a href="index.html#work">Services<span class="m-dot" aria-hidden="true"></span></a></li>
-      <li><a href="index.html#again">Work<span class="m-dot" aria-hidden="true"></span></a></li>
-      <li><a href="index.html#insights">Insights<span class="m-dot" aria-hidden="true"></span></a></li>
-      <li><a href="#contact">Contact<span class="m-dot" aria-hidden="true"></span></a></li>
+    <span class="menu__glow" aria-hidden="true"></span>
+    <div class="menu__top"><button class="menu__close" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4 20 20M20 4 4 20"/></svg>Close</button></div>
+    <ul class="menu__list">
+      <li><a href="index.html#hero"><span class="menu__n">01</span><span class="menu__t">Home</span></a></li>
+      <li><a href="index.html#work"><span class="menu__n">02</span><span class="menu__t">What we do</span></a></li>
+      <li><a href="index.html#again"><span class="menu__n">03</span><span class="menu__t">Our work</span></a></li>
+      <li><a href="index.html#insights"><span class="menu__n">04</span><span class="menu__t">Insights</span></a></li>
+      <li><a href="contact.html"><span class="menu__n">05</span><span class="menu__t">Get in touch</span></a></li>
     </ul>
-    <p class="m-text menu__foot">tom@avenella.co.uk · London and Dubai</p>
+    <p class="menu__foot"><a href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a><span>London &amp; Dubai</span></p>
   </div>
 </header>
 <main id="main">
