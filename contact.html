@@ -54,6 +54,7 @@
   --shadow-3: 0 0 0 2px color-mix(in srgb, var(--color-3) 70%, transparent);
   --space-1: clamp(16px, 3.4vw, 48px);
   --space-2: clamp(96px, 15vh, 200px);
+  --bleed: max(var(--space-1), (100% - 1320px) / 2);
   /* themed reading-surface roles (flip with light/dark) */
   --page: #F6F4F1;
   --ink: #0B0B0D;
@@ -280,7 +281,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:contact">
 @layer sections {
-#contact { position: relative; padding: var(--space-2) var(--space-1); background: var(--grad); color: #0B0B0D; overflow: clip; }
+#contact { position: relative; padding: var(--space-2) var(--bleed); background: var(--grad); color: #0B0B0D; overflow: clip; }
 #contact :focus-visible { outline-color: #0B0B0D; }
 #contact .contact__title { font-size: min(19vw, calc((100vw - 2 * var(--space-1)) / (var(--len) * 0.5))); line-height: 0.86; white-space: nowrap; }
 #contact .contact__title .m-dot { background: #0B0B0D; }
@@ -308,7 +309,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:footer">
 @layer sections {
-#footer { position: relative; padding: clamp(64px, 9vh, 112px) var(--space-1) 30px; background: #09090B; color: #F6F4F1; overflow: clip; }
+#footer { position: relative; padding: clamp(64px, 9vh, 112px) var(--bleed) 30px; background: #09090B; color: #F6F4F1; overflow: clip; }
 #footer .footer__cta { position: relative; display: inline-flex; align-items: baseline; font-family: var(--font-1); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; font-size: clamp(46px, 9vw, 124px); text-decoration: none; color: #F6F4F1; }
 #footer .footer__cta .m-dot { width: 0.16em; height: 0.16em; }
 #footer .footer__star { position: absolute; top: -6px; right: 2px; width: clamp(32px, 4vw, 52px); height: clamp(32px, 4vw, 52px); }
@@ -533,6 +534,9 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 <script data-8b-part="theme-gate">
 try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
 </script>
+<style data-8b-part="grain">
+body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events: none; opacity: .4; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 160px 160px; }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
