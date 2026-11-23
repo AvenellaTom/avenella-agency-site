@@ -668,6 +668,21 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
   #statement .statement__body { margin-top: clamp(32px, 5vh, 56px); gap: 32px; }
 }
 </style>
+<style data-8b-part="burger">
+#navigation .nav__burger { display: block; gap: 0; overflow: visible; }
+#navigation .nav__burger path { transform-box: view-box; transform-origin: center; transition: transform .3s cubic-bezier(.5,.85,.25,1.1); }
+#navigation .nav__burger path:nth-child(1) { transform: translateY(-7px); }
+#navigation .nav__burger path:nth-child(2) { transition-timing-function: cubic-bezier(.5,.85,.25,1.8); }
+#navigation .nav__burger path:nth-child(3) { transform: translateY(7px); }
+#navigation .nav__menu[aria-expanded="true"] .nav__burger path:nth-child(1) { transform: translateY(0) rotate(315deg); }
+#navigation .nav__menu[aria-expanded="true"] .nav__burger path:nth-child(2) { transform: rotate(45deg); }
+#navigation .nav__menu[aria-expanded="true"] .nav__burger path:nth-child(3) { transform: translateY(0) rotate(135deg); }
+#navigation .nav__menu { position: relative; transition: background .3s, color .3s, border-color .3s; }
+#navigation .nav__menu[aria-expanded="true"] { z-index: 90; color: #F6F4F1; border-color: rgba(246,244,241,.55); background: transparent; }
+#navigation .nav__menu[aria-expanded="true"]:hover { color: #D89166; border-color: #D89166; background: transparent; }
+#navigation .menu__top { display: none; }
+@media (prefers-reduced-motion: reduce) { #navigation .nav__burger path { transition: none; } }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -682,7 +697,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
     </ul>
   </nav>
   <a class="m-btn nav__cta" href="contact.html"><span class="m-btn__label">Let's talk</span><span aria-hidden="true">&#8594;</span></a>
-  <button class="m-btn-2 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="nav__burger" aria-hidden="true"><i></i><i></i></span><span class="nav-sr">Menu</span></button>
+  <button class="m-btn-2 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><svg class="nav__burger" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12H20"/><path d="M4 12H20"/><path d="M4 12H20"/></svg><span class="nav-sr">Menu</span></button>
   <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
     <span class="menu__glow" aria-hidden="true"></span>
     <div class="menu__top"><button class="menu__close" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4 20 20M20 4 4 20"/></svg>Close</button></div>
@@ -948,19 +963,22 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
   const setOpen = open => {
     menu.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
-    if (open) { window.motionKit?.wheel?.stop(); close.focus(); } else { window.motionKit?.wheel?.start(); toggle.focus(); }
+    toggle.querySelector('.nav-sr').textContent = open ? 'Close menu' : 'Menu';
+    if (open) { window.motionKit?.wheel?.stop(); } else { window.motionKit?.wheel?.start(); }
+    toggle.focus();
   };
-  toggle.addEventListener('click', () => setOpen(true));
+  toggle.addEventListener('click', () => setOpen(menu.hidden));
   close.addEventListener('click', () => setOpen(false));
-  menu.addEventListener('keydown', event => {
+  nav.addEventListener('keydown', event => {
+    if (menu.hidden) return;
     if (event.key === 'Escape') setOpen(false);
     if (event.key !== 'Tab') return;
-    const items = [...menu.querySelectorAll('a, button')];
+    const items = [toggle, ...menu.querySelectorAll('a')];
     const first = items[0], last = items[items.length - 1];
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   });
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.hidden = true; toggle.setAttribute('aria-expanded', 'false'); window.motionKit?.wheel?.start(); }));
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.hidden = true; toggle.setAttribute('aria-expanded', 'false'); toggle.querySelector('.nav-sr').textContent = 'Menu'; window.motionKit?.wheel?.start(); }));
 })();
 </script>
 <script data-8b-part="section-script:hero">
