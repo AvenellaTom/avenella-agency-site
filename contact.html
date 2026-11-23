@@ -537,6 +537,28 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #navigation .nav__menu { background: #201B16; color: #F6F4F1; }
 #navigation .nav__menu:hover { color: #201B16; }
 </style>
+<style data-8b-part="nav-v2">
+#navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 12px var(--space-1); pointer-events: auto; background: color-mix(in srgb, #201B16 84%, transparent); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid color-mix(in srgb, #F6F4F1 10%, transparent); }
+#navigation .nav__links { display: none; }
+#navigation .nav__menu { order: 1; justify-self: start; display: inline-grid; place-items: center; width: 46px; height: 46px; min-height: 0; padding: 0; border-radius: 12px; border: 1.5px solid color-mix(in srgb, #F6F4F1 38%, transparent); background: transparent; color: #F6F4F1; }
+#navigation .nav__menu::before, #navigation .nav__menu::after { display: none; }
+#navigation .nav__menu:hover { border-color: var(--color-3); color: #F6F4F1; }
+#navigation .nav__burger { display: grid; gap: 6px; }
+#navigation .nav__burger i { display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor; }
+#navigation .nav__brand { order: 2; justify-self: center; background: transparent; padding: 0; min-height: 46px; }
+#navigation .nav__logo { height: clamp(18px, 2vw, 23px); filter: drop-shadow(0 3px 10px rgba(0,0,0,.45)); }
+#navigation .nav__cta { order: 3; justify-self: end; display: inline-flex; min-height: 44px; box-shadow: none; }
+@media (max-width: 520px) { #navigation .nav__cta { padding: 0 14px 0 12px; font-size: 14px; } }
+.nav-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+</style>
+<style data-8b-part="round-7">
+#footer { border-top: 0; padding-top: clamp(56px, 8vh, 92px); }
+#footer .footer__grid { margin-top: 0; padding-top: 0; border-top: 0; }
+</style>
+<style data-8b-part="round-7b">
+#hero { grid-template-columns: minmax(0, 1fr); }
+#footer .footer__legal { padding-right: 72px; }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -549,8 +571,8 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
       <li><a class="m-link-2" href="index.html#insights">Insights</a></li>
     </ul>
   </nav>
-  <a class="m-btn nav__cta" href="#contact"><span class="m-btn__label">Start a project</span></a>
-  <button class="m-btn-2 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="m-btn__label">Menu</span></button>
+  <a class="m-btn nav__cta" href="#contact"><span class="m-btn__label">Let's talk</span></a>
+  <button class="m-btn-2 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="nav__burger" aria-hidden="true"><i></i><i></i></span><span class="nav-sr">Menu</span></button>
   <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
     <div class="menu__top"><button class="m-icon menu__close" type="button" aria-label="Close the menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13"/></svg></button></div>
     <ul class="menu__list" data-8b-items=":scope > li">
@@ -633,9 +655,6 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </main>
 <footer id="footer">
   <div class="footer__inner">
-    <p class="footer__kick">Say hello</p>
-    <a class="footer__mail" href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a>
-    <p class="footer__sub">Creative thinking. Commercial purpose. Strategy, design and technology, brought together across London and Dubai.</p>
     <div class="footer__grid">
       <div class="footer__col">
         <p class="footer__label">The Avenella Agency</p>
