@@ -413,6 +413,29 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 @media (max-width: 760px) { #footer .stamp { display: none; } }
 }
 </style>
+<style data-8b-part="section:cta">
+@layer sections {
+#cta { position: relative; background: #09090B; color: var(--color-2); padding: clamp(60px, 10vh, 120px) var(--space-1); overflow: clip; }
+#cta .cta__inner { display: grid; gap: clamp(32px, 5vw, 56px); align-items: center; grid-template-columns: minmax(0, 1fr); }
+#cta .cta__kicker { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-family: var(--font-2); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-3); }
+#cta .cta__kicker::before { content: ""; width: 34px; height: 1.5px; background: var(--color-3); }
+#cta .cta__headline { display: inline-flex; align-items: baseline; gap: 0.12em; max-width: 20ch; font-family: var(--font-1); font-weight: 800; font-size: clamp(34px, 5.2vw, 74px); line-height: 0.96; letter-spacing: -0.04em; color: var(--color-2); text-decoration: none; }
+#cta .cta__headline .m-dot { width: 0.16em; height: 0.16em; }
+#cta .cta__aside { display: flex; align-items: center; gap: clamp(22px, 4vw, 52px); flex-wrap: wrap; }
+#cta .cta-ring { position: relative; display: grid; place-items: center; width: clamp(128px, 16vw, 186px); height: clamp(128px, 16vw, 186px); flex: none; text-decoration: none; color: var(--color-2); }
+#cta .cta-ring__spin { position: absolute; inset: 0; animation: spin 22s linear infinite; }
+#cta .cta-ring__spin svg { width: 100%; height: 100%; overflow: visible; }
+#cta .cta-ring__spin text { font-family: var(--font-2); font-size: 7.6px; font-weight: 700; letter-spacing: 0.04em; fill: var(--color-2); }
+#cta .cta-ring__arrow { position: relative; display: grid; place-items: center; width: 32%; height: 32%; border-radius: 50%; background: var(--grad); }
+#cta .cta-ring__arrow svg { width: 44%; height: 44%; fill: none; stroke: #0B0B0D; stroke-width: 2; }
+@media (hover: hover) { #cta .cta-ring:hover .cta-ring__arrow { transform: scale(1.08); transition: transform .25s; } }
+@media (prefers-reduced-motion: reduce) { #cta .cta-ring__spin { animation: none; } }
+#cta .cta__badge { position: relative; display: grid; place-items: center; text-align: center; width: clamp(104px, 12vw, 138px); height: clamp(104px, 12vw, 138px); flex: none; transform: rotate(-6deg); }
+#cta .cta__badge > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+#cta .cta__badge > span { position: relative; font-family: var(--font-1); font-weight: 800; text-transform: uppercase; font-size: clamp(11px, 1vw, 13px); line-height: 1.02; letter-spacing: 0.01em; color: #0B0B0D; max-width: 6ch; }
+@media (min-width: 880px) { #cta .cta__inner { grid-template-columns: minmax(0, 1fr) auto; } }
+}
+</style>
 <style data-8b-part="motion">
 @layer scenes {
 [data-8b-live] [data-8b-motion~="rise"] { animation-name: motion-rise; animation-duration: 0.95s; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); animation-fill-mode: both; animation-play-state: paused; }
@@ -550,7 +573,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
     <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
     <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
   </button>
-  <a class="m-btn nav__cta" href="#contact"><span class="m-btn__label">Start a project</span></a>
+  <a class="m-btn nav__cta" href="contact.html"><span class="m-btn__label">Start a project</span></a>
   <button class="m-btn-2 nav__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="m-btn__label">Menu</span></button>
   <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
     <div class="menu__top"><button class="m-icon menu__close" type="button" aria-label="Close the menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13"/></svg></button></div>
@@ -558,7 +581,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
       <li><a href="#work">Services<span class="m-dot" aria-hidden="true"></span></a></li>
       <li><a href="#again">Work<span class="m-dot" aria-hidden="true"></span></a></li>
       <li><a href="#insights">Insights<span class="m-dot" aria-hidden="true"></span></a></li>
-      <li><a href="#contact">Contact<span class="m-dot" aria-hidden="true"></span></a></li>
+      <li><a href="contact.html">Contact<span class="m-dot" aria-hidden="true"></span></a></li>
     </ul>
     <p class="m-text menu__foot">tom@avenella.co.uk · London and Dubai</p>
   </div>
@@ -573,7 +596,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
     <div class="badge-spin__core"><svg viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></div>
   </div>
   <div class="hero__intro">
-    <p class="m-text-5 hero__lead">We are The Avenella Agency, the brand, product and growth arm of the Avenella Group. For businesses that have outgrown guesswork. Director-led, across London and Dubai.</p>
+    <p class="m-text-5 hero__lead">We are The Avenella Agency, a growth consultancy for businesses that have outgrown guesswork. Director-led, across London and Dubai. Tell us what you are building.</p>
     <a class="m-link hero__link" href="#work"><span class="m-link__label">What we do</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
     <span class="sticker">Director-led</span>
   </div>
@@ -590,7 +613,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
         <li><a class="m-link" href="#work"><span class="m-link__label">What we do</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
         <li><a class="m-link" href="#again"><span class="m-link__label">Selected work</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
         <li><a class="m-link" href="#insights"><span class="m-link__label">Insights</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
-        <li><a class="m-link" href="#contact"><span class="m-link__label">Start a project</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
+        <li><a class="m-link" href="contact.html"><span class="m-link__label">Start a project</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
       </ul>
     </nav>
   </div>
@@ -742,79 +765,27 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
   </div>
 </section>
 
-<!-- contact -->
-<section id="contact" data-8b-section="contact" aria-labelledby="contact-title">
-  <a class="cta-ring" href="#tf" aria-label="Start a project">
-    <span class="cta-ring__spin"><svg viewBox="0 0 100 100"><defs><path id="avRing2" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"></path></defs><text><textPath href="#avRing2" startOffset="0" textLength="232" lengthAdjust="spacingAndGlyphs">START A PROJECT &#183; LET'S TALK &#183; </textPath></text></svg></span>
-    <span class="cta-ring__arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
-  </a>
-  <h2 class="m-text-3 contact__title" id="contact-title" style="--len:10"><span class="contact__voice">Let's talk</span><span class="m-dot" aria-hidden="true"></span></h2>
-  <div class="contact__grid">
-    <div class="contact__info">
-      <span class="contact__kicker">Get in touch</span>
-      <p class="m-text-5 contact__lead">Tell us what you are making. A real person reads every message, and you hear back from one of us directly.</p>
-      <div class="contact__also">
-        <div class="contact__also-label">You can also</div>
-        <dl class="contact__also-cols">
-          <div><dt>Email</dt><dd><a href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a></dd></div>
-          <div><dt>London</dt><dd>United Kingdom</dd></div>
-          <div><dt>Dubai</dt><dd>United Arab Emirates</dd></div>
-        </dl>
-      </div>
-      <span class="stamp" aria-hidden="true">Director-led, always<svg class="stamp__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></span>
+<!-- cta -->
+<section id="cta" data-8b-section="cta" aria-labelledby="cta-title">
+  <div class="cta__inner">
+    <div class="cta__lead">
+      <span class="cta__kicker">Start a project</span>
+      <a class="cta__headline" id="cta-title" href="contact.html">We'd love to hear what you're building. Let's talk<span class="m-dot" aria-hidden="true"></span></a>
     </div>
-    <form class="tf" id="tf" novalidate aria-label="Start a project">
-      <div class="tf__progress"><span class="tf__bar" id="tfBar"></span></div>
-      <div class="tf__steps">
-        <div class="tf__step is-active" data-step data-required>
-          <label class="tf__q" for="tf-name">First, what should we call you?</label>
-          <input class="m-field" id="tf-name" name="name" type="text" autocomplete="name">
-          <p class="tf__hint m-text-6">Press Enter &#8629;</p>
-        </div>
-        <div class="tf__step" data-step data-required data-type="email">
-          <label class="tf__q" for="tf-email">Where can we reach you?</label>
-          <input class="m-field" id="tf-email" name="email" type="email" autocomplete="email" inputmode="email">
-          <p class="tf__hint m-text-6">A work email is best. Press Enter &#8629;</p>
-        </div>
-        <div class="tf__step" data-step>
-          <label class="tf__q" for="tf-company">And the company?</label>
-          <input class="m-field" id="tf-company" name="company" type="text" autocomplete="organization">
-          <p class="tf__hint m-text-6">Optional. Press Enter to skip &#8629;</p>
-        </div>
-        <div class="tf__step" data-step data-choice>
-          <p class="tf__q" id="tf-topic-q">What can we help with?</p>
-          <div class="tf__choices" role="radiogroup" aria-labelledby="tf-topic-q">
-            <button type="button" class="tf__choice" role="radio" aria-checked="false">Websites, apps or dashboards</button>
-            <button type="button" class="tf__choice" role="radio" aria-checked="false">Content and marketing growth</button>
-            <button type="button" class="tf__choice" role="radio" aria-checked="false">Branding and positioning</button>
-            <button type="button" class="tf__choice" role="radio" aria-checked="false">AI systems and automation</button>
-            <button type="button" class="tf__choice" role="radio" aria-checked="false">Not sure yet, let's talk</button>
-          </div>
-          <input type="hidden" name="topic">
-        </div>
-        <div class="tf__step" data-step data-required>
-          <label class="tf__q" for="tf-message">What is the biggest blocker right now?</label>
-          <textarea class="m-field" id="tf-message" name="message" rows="3"></textarea>
-          <p class="tf__hint m-text-6">A sentence is plenty. Shift+Enter for a new line.</p>
-        </div>
-      </div>
-      <div class="tf__foot">
-        <button type="button" class="tf__back" id="tfBack" hidden>Back</button>
-        <button type="button" class="m-btn" id="tfNext"><span class="m-btn__label">OK</span></button>
-        <p class="tf__status" id="tfStatus" role="status" aria-live="polite"></p>
-      </div>
-      <div class="tf__done" aria-live="polite">
-        <p class="tf__q">Thank you.</p>
-        <p class="m-text">A real person will read this and get back to you directly.</p>
-      </div>
-    </form>
+    <div class="cta__aside">
+      <a class="cta-ring" href="contact.html" aria-label="Contact us">
+        <span class="cta-ring__spin"><svg viewBox="0 0 100 100"><defs><path id="ctaRing" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"></path></defs><text><textPath href="#ctaRing" startOffset="0" textLength="232" lengthAdjust="spacingAndGlyphs">LET'S TALK &#183; START A PROJECT &#183; </textPath></text></svg></span>
+        <span class="cta-ring__arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
+      </a>
+      <span class="cta__badge" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="seal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0785F"></stop><stop offset="0.5" stop-color="#D99367"></stop><stop offset="1" stop-color="#C8A96E"></stop></linearGradient></defs><polygon points="50.0,1.0 57.3,8.6 66.8,4.0 71.0,13.6 81.5,12.5 82.2,23.0 92.4,25.5 89.5,35.6 98.3,41.5 92.0,50.0 98.3,58.5 89.5,64.4 92.4,74.5 82.2,77.0 81.5,87.5 71.0,86.4 66.8,96.0 57.3,91.4 50.0,99.0 42.7,91.4 33.2,96.0 29.0,86.4 18.5,87.5 17.8,77.0 7.6,74.5 10.5,64.4 1.7,58.5 8.0,50.0 1.7,41.5 10.5,35.6 7.6,25.5 17.8,23.0 18.5,12.5 29.0,13.6 33.2,4.0 42.7,8.6" fill="url(#seal)"></polygon></svg><span>The Growth Loop</span></span>
+    </div>
   </div>
 </section>
 </main>
 
 <!-- footer -->
 <footer id="footer">
-  <a class="footer__cta" href="#contact">Let's grow<span class="m-dot" aria-hidden="true"></span><svg class="footer__star" viewBox="0 0 41 42" aria-hidden="true"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></a>
+  <a class="footer__cta" href="contact.html">Let's grow<span class="m-dot" aria-hidden="true"></span><svg class="footer__star" viewBox="0 0 41 42" aria-hidden="true"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></a>
   <div class="footer__grid">
     <div class="footer__brand">
       <div class="footer__wordmark"><img class="footer__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></div>
