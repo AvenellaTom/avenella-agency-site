@@ -658,6 +658,16 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #cta .cta-ring__arrow svg { stroke: #201B16; }
 #footer { border-top: 1px solid color-mix(in srgb, #F6F4F1 12%, transparent); padding-top: clamp(40px, 6vh, 64px); }
 </style>
+<style data-8b-part="round-9">
+#again .partner__card::after { inset: 28% 0 0; background: linear-gradient(to top, rgba(14,11,9,.94) 0%, rgba(14,11,9,.8) 38%, rgba(14,11,9,.34) 72%, transparent 100%); }
+#again .partner__name, #again .partner__line { text-shadow: 0 1px 14px rgba(0,0,0,.45); }
+#navigation .nav__cta { white-space: nowrap; }
+@media (max-width: 520px) { #navigation .nav__cta { padding: 0 12px; min-height: 40px; font-size: 10px; letter-spacing: .08em; } #navigation .nav__cta > span[aria-hidden] { display: none; } #navigation .nav__logo img, #navigation .nav__brand img { max-width: 132px; height: auto; } }
+@media (max-width: 899px), (orientation: portrait) {
+  #hero .hero__title { font-size: calc((100vw - 2 * var(--space-1)) / 3.3); padding-bottom: 84px; }
+  #statement .statement__body { margin-top: clamp(32px, 5vh, 56px); gap: 32px; }
+}
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
