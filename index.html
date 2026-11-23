@@ -562,15 +562,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </style>
 <style data-8b-part="cta-colour">
 @layer sections {
-#cta { background: var(--grad); color: #0B0B0D; }
-#cta .cta__kicker { color: #0B0B0D; }
-#cta .cta__kicker::before { background: #0B0B0D; }
-#cta .cta__headline { color: #0B0B0D; }
-#cta .cta__headline .m-dot { background: #0B0B0D; }
-#cta .cta-ring { color: #0B0B0D; }
-#cta .cta-ring__spin text { fill: #0B0B0D; }
-#cta .cta-ring__arrow { background: #0B0B0D; }
-#cta .cta-ring__arrow svg { stroke: var(--color-2); }
+#cta { background: #1B1619; color: var(--color-2); }
 }
 </style>
 <style data-8b-part="tweaks">
@@ -584,6 +576,16 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #work { background: #09090B; }
 .statement__main { display: grid; gap: clamp(22px, 3vh, 34px); justify-items: start; }
 .m-link__label::after, .m-link-2::after { background: var(--grad); }
+</style>
+<style data-8b-part="footer-premium">
+#footer { padding-top: clamp(82px, 11vh, 140px); }
+#footer .footer__logo { height: 34px; }
+#footer .footer__brand p { max-width: 34ch; margin-top: 18px; font-size: 15px; line-height: 1.62; }
+#footer .footer__grid { gap: clamp(40px, 6vw, 72px) 32px; margin-top: clamp(52px, 8vh, 92px); padding-top: 42px; border-top: 1px solid color-mix(in srgb, #F6F4F1 15%, transparent); }
+#footer .footer__col { gap: 13px; }
+#footer .footer__label { margin-bottom: 12px; letter-spacing: 0.2em; }
+#footer .footer__col a, #footer .footer__col span { color: rgba(246,244,241,.82); font-size: 15px; }
+#footer .footer__legal { margin-top: clamp(46px, 7vh, 74px); padding-top: 28px; border-top: 1px solid color-mix(in srgb, #F6F4F1 13%, transparent); font-size: 12px; letter-spacing: 0.05em; }
 </style>
 </head>
 <body class="m-text">
