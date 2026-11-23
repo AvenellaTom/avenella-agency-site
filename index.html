@@ -53,7 +53,7 @@
   --shadow-2: 0 2px 0 var(--color-3);
   --shadow-3: 0 0 0 2px color-mix(in srgb, var(--color-3) 70%, transparent);
   --space-1: clamp(16px, 3.4vw, 48px);
-  --space-2: clamp(96px, 15vh, 200px);
+  --space-2: clamp(72px, 10vh, 132px);
   --bleed: max(var(--space-1), (100% - 1320px) / 2);
   /* themed reading-surface roles (flip with light/dark) */
   --page: #F6F4F1;
@@ -580,6 +580,11 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 #again .partner__card:hover, #again .partner__card:focus-visible { border-color: color-mix(in srgb, var(--color-2) 60%, transparent); }
 }
 </style>
+<style data-8b-part="tweaks2">
+#work { background: #09090B; }
+.statement__main { display: grid; gap: clamp(22px, 3vh, 34px); justify-items: start; }
+.m-link__label::after, .m-link-2::after { background: var(--grad); }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -622,7 +627,6 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
   <div class="hero__intro">
     <p class="m-text-5 hero__lead"><span class="hero__brand">The Avenella Agency</span> brings strategy, design and technology together to make your business clearer, more compelling and ready for what comes next. Across London and Dubai.</p>
     <a class="m-link hero__link" href="#work"><span class="m-link__label">What we do</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
-    <span class="sticker">Director-led</span>
   </div>
   <h1 class="m-text-2 hero__title" id="hero-title" style="--len:6"><span class="hero__word"><span class="hero__mask"><span class="hero__glyphs">Ready?</span></span></span><span class="hero__period" aria-hidden="true"><span class="hero__stage"><span class="hero__orbit"><span class="hero__moon"></span></span><span class="hero__aperture"><video class="hero__img" autoplay muted loop playsinline poster="hero-agency.jpg"><source src="hero-video.mp4" type="video/mp4"></video><span class="hero__tint"></span></span></span></span></h1>
 </section>
@@ -631,7 +635,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 <section id="statement" data-8b-section="statement" aria-labelledby="statement-title">
   <h2 class="m-text-3 statement__title" id="statement-title"><span class="statement__line">Good ideas.</span><span class="statement__line">Built for business<span class="m-dot statement__dot" aria-hidden="true"></span></span></h2>
   <div class="statement__body">
-    <p class="m-text-5 statement__lead" data-8b-motion="ink" data-8b-split="words">We connect the thinking with the doing. Bring us one challenge or the whole business. We'll build the right team around it, from the first clear brief to the work that goes into the world. Senior thinking. Sleeves rolled up.</p>
+    <div class="statement__main"><p class="m-text-5 statement__lead" data-8b-motion="ink" data-8b-split="words">We connect the thinking with the doing. Bring us one challenge or the whole business. We'll build the right team around it, from the first clear brief to the work that goes into the world. Senior thinking. Sleeves rolled up.</p><span class="sticker statement__sticker">Director-led</span></div>
     <nav class="statement__index" aria-label="On this page" data-8b-motion="arrive" data-8b-enter="85%">
       <ul data-8b-items=":scope > li">
         <li><a class="m-link" href="#work"><span class="m-link__label">What we do</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></li>
@@ -673,7 +677,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           <div class="svc-media"><img src="work-kasp.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need a website that works harder."</span>
-            <h3 class="m-text-4">Websites &amp; digital products</h3>
+            <h3 class="m-text-4">Websites &amp; digital products<span class="m-dot" aria-hidden="true"></span></h3>
             <p class="m-text svc-line">Useful, considered digital experiences, with the content and systems to make them work for your business.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">Websites</li><li class="m-badge">E-commerce</li><li class="m-badge">Apps</li><li class="m-badge">Dashboards</li><li class="m-badge">CRMs</li></ul>
           </div>
@@ -682,7 +686,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           <div class="svc-media"><img src="work-visa.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need to get people interested."</span>
-            <h3 class="m-text-4">Content &amp; campaigns</h3>
+            <h3 class="m-text-4">Content &amp; campaigns<span class="m-dot" aria-hidden="true"></span></h3>
             <p class="m-text svc-line">Give people a reason to stop, pay attention and take the next step. Clear creative, planned for the right channels.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">SEO</li><li class="m-badge">Campaigns</li><li class="m-badge">Editorial</li><li class="m-badge">Paid media</li></ul>
           </div>
@@ -691,7 +695,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           <div class="svc-media"><img src="work-latifa.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need my brand sorted."</span>
-            <h3 class="m-text-4">Brand &amp; strategy</h3>
+            <h3 class="m-text-4">Brand &amp; strategy<span class="m-dot" aria-hidden="true"></span></h3>
             <p class="m-text svc-line">Find the story, positioning and identity that make your business easier to understand and choose.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">Audits</li><li class="m-badge">Positioning</li><li class="m-badge">Naming &amp; messaging</li><li class="m-badge">Identity</li></ul>
           </div>
@@ -700,7 +704,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           <div class="svc-media"><img src="work-pierluigis.gif" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need our channels run properly."</span>
-            <h3 class="m-text-4">Social media management</h3>
+            <h3 class="m-text-4">Social media management<span class="m-dot" aria-hidden="true"></span></h3>
             <p class="m-text svc-line">A clear point of view, consistent content and thoughtful community management. Give every channel a useful role in your business.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">Strategy</li><li class="m-badge">Content</li><li class="m-badge">Community</li><li class="m-badge">Reporting</li></ul>
           </div>
@@ -709,7 +713,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
           <div class="svc-media"><img src="work-zorazenith.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
             <span class="svc-ask">"I need to make work work better."</span>
-            <h3 class="m-text-4">AI &amp; smarter systems</h3>
+            <h3 class="m-text-4">AI &amp; smarter systems<span class="m-dot" aria-hidden="true"></span></h3>
             <p class="m-text svc-line">Make useful knowledge easier to find and repetitive work easier to handle. Practical tools built around the way your team works.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">AI assistants</li><li class="m-badge">Automation</li><li class="m-badge">Knowledge bases</li><li class="m-badge">Connected tools</li></ul>
           </div>
