@@ -551,12 +551,40 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 <script data-8b-part="theme-gate">
 try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
 </script>
+<style data-8b-part="section:polish">
+@layer sections {
+#navigation .nav__brand { background: transparent; padding: 0; min-height: 48px; border-radius: var(--radius-2); transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
+#navigation .nav__logo { height: clamp(20px, 2vw, 24px); filter: drop-shadow(0 3px 10px color-mix(in srgb, var(--ink) 30%, transparent)); }
+#navigation .nav__logo--dark { display: none; }
+:root[data-theme="dark"] #navigation .nav__logo--light { display: none; }
+:root[data-theme="dark"] #navigation .nav__logo--dark { display: block; }
+#navigation .nav__links, #navigation .nav__theme { background: color-mix(in srgb, var(--page) 60%, transparent); color: var(--ink); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border: 1px solid color-mix(in srgb, var(--ink) 13%, transparent); box-shadow: 0 14px 36px -20px color-mix(in srgb, var(--ink) 55%, transparent); }
+#navigation .nav__links a { color: var(--ink); }
+#navigation.is-stuck .nav__brand { background: color-mix(in srgb, var(--page) 60%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); padding: 0 16px; box-shadow: 0 14px 36px -20px color-mix(in srgb, var(--ink) 55%, transparent); }
+.sticker { position: relative; }
+.sticker--coral { background: var(--color-3); color: #0B0B0D; box-shadow: 4px 4px 0 #0B0B0D; }
+.sticker--ink { background: #0B0B0D; color: var(--color-2); box-shadow: 4px 4px 0 var(--color-3); }
+.sticker__star { position: absolute; top: -10px; right: -10px; width: 22px; height: 22px; }
+.sticker__star path { fill: var(--color-3); }
+.sticker--coral .sticker__star path { fill: #0B0B0D; }
+.sec-tag { z-index: 6; white-space: nowrap; }
+#statement .sec-tag, #insights .sec-tag { position: absolute; top: clamp(26px, 5vh, 58px); right: var(--bleed); }
+#work .work__stage .sec-tag, #again .again__stage .sec-tag { position: absolute; top: clamp(36px, 6svh, 64px); right: var(--bleed); }
+#clients .sec-tag { position: absolute; top: 12px; left: var(--space-1); }
+@media (max-width: 760px) { .sec-tag { display: none; } }
+#work .case { border: 1px solid color-mix(in srgb, var(--color-2) 10%, transparent); box-shadow: 0 26px 54px -32px rgba(0,0,0,.85); transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease, border-color .45s ease; }
+#work .case:hover { transform: translateY(-5px); box-shadow: 0 36px 70px -30px rgba(0,0,0,.9); border-color: color-mix(in srgb, var(--color-3) 55%, transparent); }
+#insights .insight { border-radius: var(--radius-1); overflow: hidden; background: color-mix(in srgb, var(--ink) 5%, var(--page)); border: 1px solid color-mix(in srgb, var(--ink) 9%, transparent); box-shadow: 0 18px 42px -30px color-mix(in srgb, var(--ink) 70%, transparent); transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease; }
+#insights .insight:hover { transform: translateY(-5px); box-shadow: 0 30px 58px -28px color-mix(in srgb, var(--ink) 78%, transparent); }
+#statement { box-shadow: inset 0 26px 54px -44px color-mix(in srgb, var(--ink) 48%, transparent); }
+}
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
 
 <header id="navigation" class="nav" data-8b-section="navigation">
-  <a class="nav__brand" href="#hero" aria-label="The Avenella Agency, back to the top"><img class="nav__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></a>
+  <a class="nav__brand" href="#hero" aria-label="The Avenella Agency, back to the top"><img class="nav__logo nav__logo--light" src="logo-agency-onlight.png" alt="The Avenella Agency" width="485" height="72"><img class="nav__logo nav__logo--dark" src="logo-agency-ondark.png" alt="" aria-hidden="true" width="485" height="72"></a>
   <nav class="nav__links" aria-label="Main">
     <ul data-8b-items=":scope > li">
       <li><a class="m-link-2" href="#work">Services</a></li>
@@ -600,6 +628,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 
 <!-- statement -->
 <section id="statement" data-8b-section="statement" aria-labelledby="statement-title">
+  <span class="sticker sec-tag sticker--coral" aria-hidden="true">Two markets. One team.<svg class="sticker__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9"/></svg></span>
   <h2 class="m-text-3 statement__title" id="statement-title"><span class="statement__line">We don't run guesswork.</span><span class="statement__line">We run growth you can&nbsp;see<span class="m-dot statement__dot" aria-hidden="true"></span></span></h2>
   <div class="statement__body">
     <p class="m-text-5 statement__lead" data-8b-motion="ink" data-8b-split="words">Most agencies run your marketing and send a PDF. We show you exactly what it is making you. Every engagement is director-led and measured against commercial outcomes you can see in real time, whether you are a bank, a bakery or a clinic. Two markets, one team.</p>
@@ -634,6 +663,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 <section id="work" data-8b-section="work" aria-labelledby="work-title">
   <div class="work__plate" aria-hidden="true"></div>
   <div class="work__stage">
+    <span class="sticker sec-tag" aria-hidden="true">What we do<svg class="sticker__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9"/></svg></span>
     <div class="work__head">
       <h2 class="m-text-3" id="work-title">Our services<span class="m-dot" aria-hidden="true"></span></h2>
       <p class="m-text-5 work__lead">Start with what you actually need. Chances are it is one of these, and it is one team that delivers all of it.</p>
@@ -692,12 +722,14 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 
 <!-- clients: logo strip -->
 <section id="clients" data-8b-section="clients" aria-label="A selection of clients">
+  <span class="sticker sec-tag sticker--ink" aria-hidden="true">In good company<svg class="sticker__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9"/></svg></span>
   <div class="clients__row" data-count="22" aria-hidden="true"></div>
 </section>
 
 <!-- again section = SELECTED WORK (spinning wheel) -->
 <section id="again" data-8b-section="again" aria-labelledby="again-title">
   <div class="again__stage">
+    <span class="sticker sec-tag" aria-hidden="true">Results you can see<svg class="sticker__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9"/></svg></span>
     <div class="again__head">
       <h2 class="m-text-3" id="again-title">Selected work<span class="m-dot" aria-hidden="true"></span></h2>
       <p class="m-text-5 again__lead">A handful of the brands we have helped grow, and the results that came of it.</p>
@@ -735,6 +767,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 
 <!-- insights -->
 <section id="insights" data-8b-section="insights" aria-labelledby="insights-title">
+  <span class="sticker sec-tag sticker--coral" aria-hidden="true">Fresh thinking<svg class="sticker__star" viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9"/></svg></span>
   <div class="insights__head">
     <h2 class="m-text-3" id="insights-title" data-8b-motion="rise">Insights<span class="m-dot" aria-hidden="true"></span></h2>
     <p class="m-text-5 insights__lead">Commercial thinking from the studio: what works, what we have learned, and the ideas behind the work.</p>
@@ -1175,6 +1208,9 @@ motionKit.scene('again', () => {
     });
   });
 });
+</script>
+<script data-8b-part="polish:stuck">
+(function(){var n=document.getElementById('navigation');if(!n)return;var t=function(){n.classList.toggle('is-stuck',(window.scrollY||document.documentElement.scrollTop)>48);};t();addEventListener('scroll',t,{passive:true});})();
 </script>
 </body>
 </html>

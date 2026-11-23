@@ -527,11 +527,23 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 <script data-8b-part="theme-gate">
 try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
 </script>
+<style data-8b-part="section:polish">
+@layer sections {
+#navigation .nav__brand { background: transparent; padding: 0; min-height: 48px; border-radius: var(--radius-2); transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
+#navigation .nav__logo { height: clamp(20px, 2vw, 24px); filter: drop-shadow(0 3px 10px color-mix(in srgb, var(--ink) 30%, transparent)); }
+#navigation .nav__logo--dark { display: none; }
+:root[data-theme="dark"] #navigation .nav__logo--light { display: none; }
+:root[data-theme="dark"] #navigation .nav__logo--dark { display: block; }
+#navigation .nav__links, #navigation .nav__theme { background: color-mix(in srgb, var(--page) 60%, transparent); color: var(--ink); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border: 1px solid color-mix(in srgb, var(--ink) 13%, transparent); box-shadow: 0 14px 36px -20px color-mix(in srgb, var(--ink) 55%, transparent); }
+#navigation .nav__links a { color: var(--ink); }
+#navigation.is-stuck .nav__brand { background: color-mix(in srgb, var(--page) 60%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); padding: 0 16px; box-shadow: 0 14px 36px -20px color-mix(in srgb, var(--ink) 55%, transparent); }
+}
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
 <header id="navigation" class="nav" data-8b-section="navigation">
-  <a class="nav__brand" href="index.html" aria-label="The Avenella Agency, back to the top"><img class="nav__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></a>
+  <a class="nav__brand" href="index.html" aria-label="The Avenella Agency, back to the top"><img class="nav__logo nav__logo--light" src="logo-agency-onlight.png" alt="The Avenella Agency" width="485" height="72"><img class="nav__logo nav__logo--dark" src="logo-agency-ondark.png" alt="" aria-hidden="true" width="485" height="72"></a>
   <nav class="nav__links" aria-label="Main">
     <ul data-8b-items=":scope > li">
       <li><a class="m-link-2" href="index.html#work">Services</a></li>
@@ -928,6 +940,9 @@ scan();
 addEventListener('load', scan);
 document.addEventListener('animationstart', scan, true);
 })();
+</script>
+<script data-8b-part="polish:stuck">
+(function(){var n=document.getElementById('navigation');if(!n)return;var t=function(){n.classList.toggle('is-stuck',(window.scrollY||document.documentElement.scrollTop)>48);};t();addEventListener('scroll',t,{passive:true});})();
 </script>
 </body>
 </html>
