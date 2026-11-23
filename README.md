@@ -30,6 +30,7 @@ In the repo now:
 
 - Case/work images: `work-kasp.jpg`, `work-pierluigis.gif`, `work-visa.jpg`, `work-latifa.jpg`, `work-zorazenith.jpg`, `work-pthr.jpg`, `work-luxlife.jpg`, `work-nbprivate.jpg`
 - Client logo strip: `client-logo-1.png` … `client-logo-22.png`
+- `hero-video.mp4` — plays in the hero round circle and as the faded hero background (falls back to `hero-agency.jpg` until added)
 - `og-image.jpg` (social preview), `favicon.ico` optional
 
 Missing images fail gracefully (clean dark cards / hidden strip), so the site works before they are added.
