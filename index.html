@@ -575,9 +575,17 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </style>
 <style data-8b-part="alt-sections">
 /* alternating rhythm: these sections stay light against the dark hero/services/work/cta/footer */
-#statement, #clients, #insights { --page: #F6F4F1; --ink: #201B16; --ink-muted: #6B6670; }
+#statement, #clients, #insights { --page: #F6F4F1; --ink: #201B16; --ink-muted: #6B6670; color: var(--ink); }
 #statement .sticker { background: var(--color-1); color: var(--color-2); box-shadow: 4px 4px 0 var(--color-3); }
 #insights .insight { border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); box-shadow: 0 16px 34px -26px color-mix(in srgb, var(--ink) 55%, transparent); }
+</style>
+<style data-8b-part="cta-fix">
+#cta .cta__lead { display: grid; justify-items: start; gap: 4px; }
+#footer { border-top: 1px solid color-mix(in srgb, #F6F4F1 12%, transparent); }
+</style>
+<style data-8b-part="menu-fix">
+#navigation .nav__menu { background: #201B16; color: #F6F4F1; }
+#navigation .nav__menu:hover { color: #201B16; }
 </style>
 </head>
 <body class="m-text">
