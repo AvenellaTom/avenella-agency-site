@@ -309,23 +309,19 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:footer">
 @layer sections {
-#footer { position: relative; padding: clamp(64px, 9vh, 112px) var(--bleed) 30px; background: #09090B; color: #F6F4F1; overflow: clip; }
-#footer .footer__cta { position: relative; display: inline-flex; align-items: baseline; font-family: var(--font-1); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; font-size: clamp(46px, 9vw, 124px); text-decoration: none; color: #F6F4F1; }
-#footer .footer__cta .m-dot { width: 0.16em; height: 0.16em; }
-#footer .footer__star { position: absolute; top: -6px; right: 2px; width: clamp(32px, 4vw, 52px); height: clamp(32px, 4vw, 52px); }
-#footer .footer__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; margin-top: clamp(44px, 7vh, 80px); padding-top: 34px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 32%, transparent); }
-#footer .footer__brand p { color: rgba(246,244,241,.58); max-width: 32ch; margin-top: 14px; }
-#footer .footer__group { margin-top: 14px; font-size: 13px; font-weight: 600; color: rgba(246,244,241,.72); }
-#footer .footer__wordmark { font-family: var(--font-1); font-weight: 800; font-size: 20px; letter-spacing: -0.04em; }
-#footer .footer__logo { height: 26px; width: auto; display: block; }
-#footer .footer__col { display: grid; align-content: start; gap: 10px; }
-#footer .footer__label { margin-bottom: 4px; color: var(--color-3); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; }
-#footer .footer__col a, #footer .footer__col span { color: rgba(246,244,241,.78); }
-#footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(30px, 5vh, 52px); padding-top: 22px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 28%, transparent); color: rgba(246,244,241,.5); }
-#footer .footer__legal a { color: rgba(246,244,241,.5); }
-#footer .footer__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; filter: drop-shadow(0 0 7px color-mix(in srgb, var(--color-3) 60%, transparent)); }
-@media (min-width: 820px) { #footer .footer__grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; } }
-@media (prefers-reduced-motion: no-preference) { #footer .footer__star { animation: spinslow 24s linear infinite; } }
+#footer { position: relative; padding: clamp(74px, 10vh, 122px) var(--bleed) 30px; background: #09090B; color: #F6F4F1; overflow: clip; }
+#footer .footer__kick { font-family: var(--font-2); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-3); margin-bottom: 18px; }
+#footer .footer__mail { display: inline-block; font-family: var(--font-1); font-weight: 800; font-size: clamp(34px, 6vw, 84px); letter-spacing: -0.04em; line-height: 0.95; text-decoration: none; color: #F6F4F1; padding-bottom: 5px; background-image: var(--grad); background-position: 0 100%; background-size: 0% 2px; background-repeat: no-repeat; transition: background-size .45s cubic-bezier(.7, 0, .2, 1); }
+#footer .footer__mail:hover { background-size: 100% 2px; }
+#footer .footer__sub { margin-top: 22px; max-width: 34ch; color: rgba(246,244,241,.64); line-height: 1.6; font-size: 16px; }
+#footer .footer__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; margin-top: clamp(46px, 6vh, 74px); padding-top: 40px; border-top: 1px solid color-mix(in srgb, #F6F4F1 13%, transparent); }
+#footer .footer__col { display: grid; align-content: start; gap: 9px; }
+#footer .footer__label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-3); margin-bottom: 6px; }
+#footer .footer__col a, #footer .footer__col span { color: rgba(246,244,241,.82); font-size: 15px; }
+#footer .footer__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; }
+#footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(42px, 6vh, 66px); padding-top: 26px; border-top: 1px solid color-mix(in srgb, #F6F4F1 12%, transparent); color: rgba(246,244,241,.5); }
+#footer .footer__legal a:hover { color: var(--color-3); }
+@media (min-width: 760px) { #footer .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; } }
 }
 </style>
 <style data-8b-part="section:floatwa">
@@ -636,36 +632,33 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </section>
 </main>
 <footer id="footer">
-  <a class="footer__cta" href="#contact">Let's grow<span class="m-dot" aria-hidden="true"></span><svg class="footer__star" viewBox="0 0 41 42" aria-hidden="true"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></a>
-  <div class="footer__grid">
-    <div class="footer__brand">
-      <div class="footer__wordmark"><img class="footer__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></div>
-      <p class="m-text">A growth consultancy for brands that have outgrown guesswork. Director-led, across London and Dubai.</p>
-      <p class="footer__group">Part of the <span class="footer__glow">Avenella Group</span>.</p>
+  <div class="footer__inner">
+    <p class="footer__kick">Say hello</p>
+    <a class="footer__mail" href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a>
+    <p class="footer__sub">Creative thinking. Commercial purpose. Strategy, design and technology, brought together across London and Dubai.</p>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="footer__label">The Avenella Agency</p>
+        <span>Part of the <span class="footer__glow">Avenella Group</span></span>
+        <span>London &amp; Dubai</span>
+      </div>
+      <nav class="footer__col" aria-label="Explore">
+        <p class="footer__label">Explore</p>
+        <a class="m-link-2" href="index.html#work">Services</a>
+        <a class="m-link-2" href="index.html#again">Work</a>
+        <a class="m-link-2" href="index.html#insights">Insights</a>
+      </nav>
+      <div class="footer__col">
+        <p class="footer__label">Follow</p>
+        <a class="m-link-2" data-8b-placeholder="social" href="https://linkedin.com/company/avenella-group">LinkedIn</a>
+        <a class="m-link-2" data-8b-placeholder="social" href="https://www.instagram.com/avenellaagency">Instagram</a>
+        <a class="m-link-2" data-8b-placeholder="social" href="https://x.com/avenellaagency">X</a>
+      </div>
     </div>
-    <nav class="footer__col" aria-label="Explore">
-      <p class="footer__label">Explore</p>
-      <a class="m-link-2" href="index.html#work">Services</a>
-      <a class="m-link-2" href="index.html#again">Work</a>
-      <a class="m-link-2" href="index.html#insights">Insights</a>
-    </nav>
-    <div class="footer__col">
-      <p class="footer__label">Contact</p>
-      <a class="m-link-2" href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a>
-      <a class="m-link-2" href="https://wa.me/971585724310">+971 58 572 4310</a>
-      <span>London &amp; Dubai</span>
+    <div class="footer__legal m-text-6">
+      <span>&copy; 2026 Avenella Group Ltd &middot; Design by <span class="footer__glow">Avenella Agency</span></span>
+      <a href="privacy-policy">Privacy policy</a>
     </div>
-    <div class="footer__col">
-      <p class="footer__label">Follow</p>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://linkedin.com/company/avenella-group">LinkedIn</a>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://www.instagram.com/avenellaagency">Instagram</a>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://x.com/avenellaagency">X</a>
-    </div>
-  </div>
-  <div class="footer__legal m-text-6">
-    <span>© 2026 Avenella Group Ltd · Design by <span class="footer__glow">Avenella Agency</span></span>
-    <span>Made in London and Dubai</span>
-    <a href="privacy-policy">Privacy policy</a>
   </div>
 </footer>
 <a class="float-wa" href="https://wa.me/971585724310" target="_blank" rel="noopener" aria-label="WhatsApp us">
