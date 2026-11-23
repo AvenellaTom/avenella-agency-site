@@ -594,7 +594,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 @media (prefers-reduced-motion: reduce) { #navigation .nav__burger path { transition: none; } }
 </style>
 <style data-8b-part="services">
-.svh { position: relative; z-index: 10; isolation: isolate; display: grid; align-items: end; min-height: min(78svh, 820px); padding: clamp(140px, 22vh, 220px) var(--bleed) clamp(48px, 8vh, 88px); background: #201B16; color: #F6F4F1; overflow: hidden; }
+.svh { position: relative; z-index: 10; isolation: isolate; display: grid; align-items: end; min-height: min(78svh, 820px); padding: clamp(150px, 22vh, 220px) var(--bleed) clamp(48px, 8vh, 88px); background: #201B16; color: #F6F4F1; overflow: hidden; }
 .svh__bg { position: absolute; inset: 0; z-index: -1; }
 .svh__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; filter: grayscale(1) contrast(1.05); }
 .svh__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32,27,22,.35) 0%, rgba(32,27,22,.55) 40%, rgba(32,27,22,.92) 82%, #201B16 100%), linear-gradient(90deg, rgba(32,27,22,.7), rgba(32,27,22,0) 70%); }
@@ -659,6 +659,10 @@ body::after { display: none !important; }
 .sv__card { border: 1px solid rgba(246,244,241,.13); background: linear-gradient(180deg, #312921 0%, #251F1A 100%); color: #F6F4F1; --sv-muted: rgba(246,244,241,.7); --sv-line: rgba(246,244,241,.13); box-shadow: 0 34px 60px -36px rgba(0,0,0,.6); }
 .sv--light .sv__card { background: #201B16; border-color: transparent; box-shadow: 0 34px 56px -32px rgba(32,27,22,.6); }
 .sv__best { background: rgba(246,244,241,.05); }
+</style>
+<style data-8b-part="logo-size">
+#navigation .nav__logo, #navigation .nav__brand img { width: clamp(190px, 17vw, 250px); height: auto; max-width: none; margin-block: -16px; }
+@media (max-width: 520px) { #navigation .nav__logo, #navigation .nav__brand img { width: 132px; max-width: 132px; margin-block: -8px; } }
 </style>
 </head>
 <body class="m-text">

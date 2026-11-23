@@ -600,6 +600,10 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 <style data-8b-part="premium">
 body::after { display: none !important; }
 </style>
+<style data-8b-part="logo-size">
+#navigation .nav__logo, #navigation .nav__brand img { width: clamp(190px, 17vw, 250px); height: auto; max-width: none; margin-block: -16px; }
+@media (max-width: 520px) { #navigation .nav__logo, #navigation .nav__brand img { width: 132px; max-width: 132px; margin-block: -8px; } }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>

@@ -665,9 +665,9 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 @media (max-width: 520px) { #navigation .nav__cta { padding: 0 12px; min-height: 40px; font-size: 10px; letter-spacing: .08em; } #navigation .nav__cta > span[aria-hidden] { display: none; } #navigation .nav__logo img, #navigation .nav__brand img { max-width: 132px; height: auto; } }
 @media (max-width: 899px), (orientation: portrait) {
   #hero .hero__title { font-size: calc((100vw - 2 * var(--space-1)) / 3.3); padding-bottom: 84px; }
-  #hero { --ap: min(46vw, 25svh); }
-  #hero .hero__stage { top: calc(59% - var(--ap) / 2); }
-  #hero .hero__intro { gap: 14px; padding-top: clamp(88px, 12svh, 130px); }
+  #hero { --ap: min(44vw, 23svh); }
+  #hero .hero__stage { top: calc(61.5% - var(--ap) / 2); }
+  #hero .hero__intro { gap: 14px; padding-top: clamp(120px, 17svh, 156px); }
   #statement .statement__body { margin-top: clamp(32px, 5vh, 56px); gap: 32px; }
 }
 </style>
@@ -697,6 +697,10 @@ body::after { display: none !important; }
 #insights .insight { background: #201B16; color: #F6F4F1; border: 0; box-shadow: 0 34px 56px -32px rgba(32,27,22,.6); }
 #insights .insight__read { color: rgba(246,244,241,.62); }
 #insights .insight__meta { color: #D89166; }
+</style>
+<style data-8b-part="logo-size">
+#navigation .nav__logo, #navigation .nav__brand img { width: clamp(190px, 17vw, 250px); height: auto; max-width: none; margin-block: -16px; }
+@media (max-width: 520px) { #navigation .nav__logo, #navigation .nav__brand img { width: 132px; max-width: 132px; margin-block: -8px; } }
 </style>
 </head>
 <body class="m-text">
