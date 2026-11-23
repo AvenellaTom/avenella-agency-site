@@ -54,6 +54,7 @@
   --shadow-3: 0 0 0 2px color-mix(in srgb, var(--color-3) 70%, transparent);
   --space-1: clamp(16px, 3.4vw, 48px);
   --space-2: clamp(96px, 15vh, 200px);
+  --bleed: max(var(--space-1), (100% - 1440px) / 2);
   /* themed reading-surface roles (flip with light/dark) */
   --page: #F6F4F1;
   --ink: #0B0B0D;
@@ -154,7 +155,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:hero">
 @layer sections {
-#hero { --ap: min(74vw, 44svh); position: relative; z-index: 3; display: grid; grid-template-rows: 1fr auto; min-height: max(100svh, 560px); padding: 0 var(--space-1); background: var(--page); color: var(--ink); overflow: clip visible; transition: background .4s ease, color .4s ease; }
+#hero { --ap: min(74vw, 44svh); position: relative; z-index: 3; display: grid; grid-template-rows: 1fr auto; min-height: max(100svh, 560px); padding: 0 var(--bleed); background: var(--page); color: var(--ink); overflow: clip visible; transition: background .4s ease, color .4s ease; }
 #hero .hero__intro { display: grid; justify-items: start; align-content: start; gap: 18px; max-width: 34rem; padding-top: clamp(92px, 14svh, 150px); }
 #hero .hero__lead { color: var(--ink); }
 #hero .hero__title { position: static; align-self: end; padding-bottom: clamp(18px, 5svh, 52px); white-space: nowrap; }
@@ -197,7 +198,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:statement">
 @layer sections {
-#statement { position: relative; padding: var(--space-2) var(--space-1) calc(var(--space-2) * 0.8); background: var(--page); transition: background .4s ease; }
+#statement { position: relative; padding: var(--space-2) var(--bleed) calc(var(--space-2) * 0.8); background: var(--page); transition: background .4s ease; }
 #statement .statement__title { font-size: clamp(40px, 8.7vw, 140px); }
 #statement .statement__line { display: block; }
 #statement .statement__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; margin-top: clamp(56px, 11vh, 120px); }
@@ -213,7 +214,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 @layer sections {
 #work { position: relative; color: var(--color-2); }
 #work .work__plate { position: absolute; inset: 0 0 -2px; background: #09090B; }
-#work .work__stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: clamp(28px, 4vh, 48px); padding: var(--space-2) var(--space-1); }
+#work .work__stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: clamp(28px, 4vh, 48px); padding: var(--space-2) var(--bleed); }
 #work .work__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 40px; }
 #work .work__lead { max-width: 28rem; color: var(--color-5); }
 #work .work__track { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
@@ -234,7 +235,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 <style data-8b-part="section:again">
 @layer sections {
 #again { position: relative; background: var(--color-1); color: var(--color-2); }
-#again .again__stage { position: relative; padding: calc(var(--space-2) * 0.7) var(--space-1) var(--space-2); }
+#again .again__stage { position: relative; padding: calc(var(--space-2) * 0.7) var(--bleed) var(--space-2); }
 #again .again__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 40px; }
 #again .again__lead { max-width: 28rem; color: var(--color-5); }
 #again .again__swing { margin-top: clamp(40px, 7vh, 72px); }
@@ -262,7 +263,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:insights">
 @layer sections {
-#insights { position: relative; padding: var(--space-2) var(--space-1); background: var(--page); transition: background .4s ease; }
+#insights { position: relative; padding: var(--space-2) var(--bleed); background: var(--page); transition: background .4s ease; }
 #insights .insights__head { display: grid; gap: 24px; max-width: 62rem; margin-bottom: clamp(40px, 7vh, 72px); }
 #insights .insights__lead { max-width: 40rem; color: var(--ink-muted); }
 #insights .insights__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
@@ -308,23 +309,16 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:footer">
 @layer sections {
-#footer { position: relative; padding: clamp(64px, 9vh, 112px) var(--space-1) 30px; background: #09090B; color: #F6F4F1; overflow: clip; }
-#footer .footer__cta { position: relative; display: inline-flex; align-items: baseline; font-family: var(--font-1); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; font-size: clamp(46px, 9vw, 124px); text-decoration: none; color: #F6F4F1; }
-#footer .footer__cta .m-dot { width: 0.16em; height: 0.16em; }
-#footer .footer__star { position: absolute; top: -6px; right: 2px; width: clamp(32px, 4vw, 52px); height: clamp(32px, 4vw, 52px); }
-#footer .footer__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; margin-top: clamp(44px, 7vh, 80px); padding-top: 34px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 32%, transparent); }
-#footer .footer__brand p { color: rgba(246,244,241,.58); max-width: 32ch; margin-top: 14px; }
-#footer .footer__group { margin-top: 14px; font-size: 13px; font-weight: 600; color: rgba(246,244,241,.72); }
-#footer .footer__wordmark { font-family: var(--font-1); font-weight: 800; font-size: 20px; letter-spacing: -0.04em; }
-#footer .footer__logo { height: 26px; width: auto; display: block; }
-#footer .footer__col { display: grid; align-content: start; gap: 10px; }
-#footer .footer__label { margin-bottom: 4px; color: var(--color-3); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; }
-#footer .footer__col a, #footer .footer__col span { color: rgba(246,244,241,.78); }
-#footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(30px, 5vh, 52px); padding-top: 22px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 28%, transparent); color: rgba(246,244,241,.5); }
-#footer .footer__legal a { color: rgba(246,244,241,.5); }
-#footer .footer__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; filter: drop-shadow(0 0 7px color-mix(in srgb, var(--color-3) 60%, transparent)); }
-@media (min-width: 820px) { #footer .footer__grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; } }
-@media (prefers-reduced-motion: no-preference) { #footer .footer__star { animation: spinslow 24s linear infinite; } }
+#footer { position: relative; background: var(--color-2); color: var(--color-1); padding: 24px var(--bleed); }
+#footer .foot__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; font-family: var(--font-2); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-1) 70%, transparent); }
+#footer .foot__social { display: flex; gap: 10px; }
+#footer .foot__social a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--color-1); color: var(--color-2); transition: transform .2s; }
+#footer .foot__social a:hover { transform: translateY(-2px); }
+#footer .foot__social svg { width: 14px; height: 14px; fill: currentColor; }
+#footer .foot__meta { display: flex; align-items: center; gap: 16px; }
+#footer .foot__meta a:hover { color: var(--color-3); }
+#footer .foot__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+@media (max-width: 680px) { #footer .foot__inner { justify-content: center; text-align: center; } }
 }
 </style>
 <style data-8b-part="section:floatwa">
@@ -415,25 +409,26 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:cta">
 @layer sections {
-#cta { position: relative; background: #09090B; color: var(--color-2); padding: clamp(60px, 10vh, 120px) var(--space-1); overflow: clip; }
+#cta { position: relative; background: #0B0B0D; color: var(--color-2); padding: clamp(72px, 12vh, 140px) var(--bleed) clamp(52px, 9vh, 104px); overflow: visible; }
+#cta .cta__stamp { position: absolute; left: var(--bleed); top: -40px; z-index: 3; display: grid; place-items: center; text-align: center; width: clamp(118px, 13vw, 162px); height: clamp(90px, 10vw, 122px); padding: 14px; border-radius: 50%; background: var(--color-3); color: #0B0B0D; font-family: var(--font-1); font-weight: 800; text-transform: uppercase; font-size: clamp(12px, 1.1vw, 15px); line-height: 1.02; transform: rotate(-7deg); box-shadow: 5px 5px 0 #0B0B0D; }
 #cta .cta__inner { display: grid; gap: clamp(32px, 5vw, 56px); align-items: center; grid-template-columns: minmax(0, 1fr); }
-#cta .cta__kicker { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; font-family: var(--font-2); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-3); }
-#cta .cta__kicker::before { content: ""; width: 34px; height: 1.5px; background: var(--color-3); }
-#cta .cta__headline { display: inline-flex; align-items: baseline; gap: 0.12em; max-width: 20ch; font-family: var(--font-1); font-weight: 800; font-size: clamp(34px, 5.2vw, 74px); line-height: 0.96; letter-spacing: -0.04em; color: var(--color-2); text-decoration: none; }
-#cta .cta__headline .m-dot { width: 0.16em; height: 0.16em; }
-#cta .cta__aside { display: flex; align-items: center; gap: clamp(22px, 4vw, 52px); flex-wrap: wrap; }
-#cta .cta-ring { position: relative; display: grid; place-items: center; width: clamp(128px, 16vw, 186px); height: clamp(128px, 16vw, 186px); flex: none; text-decoration: none; color: var(--color-2); }
-#cta .cta-ring__spin { position: absolute; inset: 0; animation: spin 22s linear infinite; }
+#cta .cta__lead { display: grid; gap: 18px; max-width: 32ch; text-decoration: none; color: var(--color-2); }
+#cta .cta__kicker { width: fit-content; padding-bottom: 4px; border-bottom: 1.5px solid var(--color-3); font-family: var(--font-2); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+#cta .cta__headline { font-family: var(--font-1); font-weight: 800; font-size: clamp(28px, 4.2vw, 56px); line-height: 1; letter-spacing: -0.035em; text-transform: uppercase; }
+#cta .cta__aside { display: flex; align-items: center; gap: clamp(22px, 3.5vw, 56px); flex-wrap: wrap; }
+#cta .cta__arrow { flex: none; color: var(--color-2); }
+#cta .cta__arrow svg { width: clamp(44px, 5vw, 76px); height: 18px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+#cta .cta-ring { position: relative; display: grid; place-items: center; width: clamp(148px, 19vw, 248px); height: clamp(148px, 19vw, 248px); flex: none; text-decoration: none; color: var(--color-2); }
+#cta .cta-ring__spin { position: absolute; inset: 0; animation: spin 24s linear infinite; }
 #cta .cta-ring__spin svg { width: 100%; height: 100%; overflow: visible; }
-#cta .cta-ring__spin text { font-family: var(--font-2); font-size: 7.6px; font-weight: 700; letter-spacing: 0.04em; fill: var(--color-2); }
-#cta .cta-ring__arrow { position: relative; display: grid; place-items: center; width: 32%; height: 32%; border-radius: 50%; background: var(--grad); }
-#cta .cta-ring__arrow svg { width: 44%; height: 44%; fill: none; stroke: #0B0B0D; stroke-width: 2; }
-@media (hover: hover) { #cta .cta-ring:hover .cta-ring__arrow { transform: scale(1.08); transition: transform .25s; } }
+#cta .cta-ring__spin text { font-family: var(--font-1); font-weight: 700; font-size: 9px; letter-spacing: 0.02em; text-transform: uppercase; fill: var(--color-2); }
+#cta .cta-ring::after { content: ""; width: 14%; height: 14%; border-radius: 50%; background: var(--grad); }
 @media (prefers-reduced-motion: reduce) { #cta .cta-ring__spin { animation: none; } }
-#cta .cta__badge { position: relative; display: grid; place-items: center; text-align: center; width: clamp(104px, 12vw, 138px); height: clamp(104px, 12vw, 138px); flex: none; transform: rotate(-6deg); }
+#cta .cta__badge { position: relative; display: grid; place-items: center; text-align: center; width: clamp(100px, 11vw, 138px); height: clamp(100px, 11vw, 138px); flex: none; transform: rotate(-6deg); }
 #cta .cta__badge > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 #cta .cta__badge > span { position: relative; font-family: var(--font-1); font-weight: 800; text-transform: uppercase; font-size: clamp(11px, 1vw, 13px); line-height: 1.02; letter-spacing: 0.01em; color: #0B0B0D; max-width: 6ch; }
-@media (min-width: 880px) { #cta .cta__inner { grid-template-columns: minmax(0, 1fr) auto; } }
+@media (min-width: 1000px) { #cta .cta__inner { grid-template-columns: minmax(0, 1fr) auto; } }
+@media (max-width: 760px) { #cta .cta__stamp { display: none; } }
 }
 </style>
 <style data-8b-part="motion">
@@ -596,7 +591,7 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
     <div class="badge-spin__core"><svg viewBox="0 0 41 42"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></div>
   </div>
   <div class="hero__intro">
-    <p class="m-text-5 hero__lead">We are The Avenella Agency, a growth consultancy for businesses that have outgrown guesswork. Director-led, across London and Dubai. Tell us what you are building.</p>
+    <p class="m-text-5 hero__lead">We bring strategy, design and technology together to make your business clearer, more compelling and ready for what comes next. Director-led, across London and Dubai.</p>
     <a class="m-link hero__link" href="#work"><span class="m-link__label">What we do</span><svg class="m-link__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
     <span class="sticker">Director-led</span>
   </div>
@@ -766,16 +761,17 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 </section>
 
 <!-- cta -->
-<section id="cta" data-8b-section="cta" aria-labelledby="cta-title">
+<section id="cta" aria-labelledby="cta-title">
+  <span class="cta__stamp" aria-hidden="true">Growth you can see</span>
   <div class="cta__inner">
-    <div class="cta__lead">
-      <span class="cta__kicker">Start a project</span>
-      <a class="cta__headline" id="cta-title" href="contact.html">We'd love to hear what you're building. Let's talk<span class="m-dot" aria-hidden="true"></span></a>
-    </div>
+    <a class="cta__lead" href="contact.html">
+      <span class="cta__kicker">Get in touch today</span>
+      <span class="cta__headline" id="cta-title">We'd love to talk through your goals, plans and ideas. We're here to help.</span>
+    </a>
     <div class="cta__aside">
-      <a class="cta-ring" href="contact.html" aria-label="Contact us">
-        <span class="cta-ring__spin"><svg viewBox="0 0 100 100"><defs><path id="ctaRing" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"></path></defs><text><textPath href="#ctaRing" startOffset="0" textLength="232" lengthAdjust="spacingAndGlyphs">LET'S TALK &#183; START A PROJECT &#183; </textPath></text></svg></span>
-        <span class="cta-ring__arrow"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
+      <a class="cta__arrow" href="contact.html" aria-label="Contact us"><svg viewBox="0 0 76 18" aria-hidden="true"><path d="M0 9h70M62 2.5 73.5 9 62 15.5"/></svg></a>
+      <a class="cta-ring" href="contact.html" aria-label="Let's talk">
+        <span class="cta-ring__spin"><svg viewBox="0 0 100 100"><defs><path id="ctaRing" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" fill="none"></path></defs><text><textPath href="#ctaRing" startOffset="0" textLength="232" lengthAdjust="spacingAndGlyphs">LET'S TALK &#183; TELL US MORE &#183; </textPath></text></svg></span>
       </a>
       <span class="cta__badge" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><linearGradient id="seal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0785F"></stop><stop offset="0.5" stop-color="#D99367"></stop><stop offset="1" stop-color="#C8A96E"></stop></linearGradient></defs><polygon points="50.0,1.0 57.3,8.6 66.8,4.0 71.0,13.6 81.5,12.5 82.2,23.0 92.4,25.5 89.5,35.6 98.3,41.5 92.0,50.0 98.3,58.5 89.5,64.4 92.4,74.5 82.2,77.0 81.5,87.5 71.0,86.4 66.8,96.0 57.3,91.4 50.0,99.0 42.7,91.4 33.2,96.0 29.0,86.4 18.5,87.5 17.8,77.0 7.6,74.5 10.5,64.4 1.7,58.5 8.0,50.0 1.7,41.5 10.5,35.6 7.6,25.5 17.8,23.0 18.5,12.5 29.0,13.6 33.2,4.0 42.7,8.6" fill="url(#seal)"></polygon></svg><span>The Growth Loop</span></span>
     </div>
@@ -785,36 +781,14 @@ try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.
 
 <!-- footer -->
 <footer id="footer">
-  <a class="footer__cta" href="contact.html">Let's grow<span class="m-dot" aria-hidden="true"></span><svg class="footer__star" viewBox="0 0 41 42" aria-hidden="true"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></a>
-  <div class="footer__grid">
-    <div class="footer__brand">
-      <div class="footer__wordmark"><img class="footer__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></div>
-      <p class="m-text">A growth consultancy for brands that have outgrown guesswork. Director-led, across London and Dubai.</p>
-      <p class="footer__group">Part of the <span class="footer__glow">Avenella Group</span>.</p>
-    </div>
-    <nav class="footer__col" aria-label="Explore">
-      <p class="footer__label">Explore</p>
-      <a class="m-link-2" href="#work">Services</a>
-      <a class="m-link-2" href="#again">Work</a>
-      <a class="m-link-2" href="#insights">Insights</a>
-    </nav>
-    <div class="footer__col">
-      <p class="footer__label">Contact</p>
-      <a class="m-link-2" href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a>
-      <a class="m-link-2" href="https://wa.me/971585724310">+971 58 572 4310</a>
-      <span>London &amp; Dubai</span>
-    </div>
-    <div class="footer__col">
-      <p class="footer__label">Follow</p>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://linkedin.com/company/avenella-group">LinkedIn</a>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://www.instagram.com/avenellaagency">Instagram</a>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://x.com/avenellaagency">X</a>
-    </div>
-  </div>
-  <div class="footer__legal m-text-6">
-    <span>© 2026 Avenella Group Ltd · Design by <span class="footer__glow">Avenella Agency</span></span>
-    <span>Made in London and Dubai</span>
-    <a href="privacy-policy">Privacy policy</a>
+  <div class="foot__inner">
+    <span class="foot__copy">&#169; 2026 Avenella Group Ltd</span>
+    <ul class="foot__social" aria-label="Social">
+      <li><a href="https://linkedin.com/company/avenella-group" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+      <li><a href="https://www.instagram.com/avenellaagency" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
+      <li><a href="https://x.com/avenellaagency" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+    </ul>
+    <span class="foot__meta"><a href="privacy-policy">Privacy</a><span>Design by <span class="foot__glow">Avenella Agency</span></span></span>
   </div>
 </footer>
 
