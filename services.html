@@ -841,13 +841,12 @@ body::after { display: none !important; }
     toggle.setAttribute('aria-expanded', String(open));
     toggle.querySelector('.nav-sr').textContent = open ? 'Close menu' : 'Menu';
     if (open) { window.motionKit?.wheel?.stop(); } else { window.motionKit?.wheel?.start(); }
-    toggle.focus();
   };
   toggle.addEventListener('click', () => setOpen(menu.hidden));
   close.addEventListener('click', () => setOpen(false));
   nav.addEventListener('keydown', event => {
     if (menu.hidden) return;
-    if (event.key === 'Escape') setOpen(false);
+    if (event.key === 'Escape') { setOpen(false); toggle.focus(); }
     if (event.key !== 'Tab') return;
     const items = [toggle, ...menu.querySelectorAll('a')];
     const first = items[0], last = items[items.length - 1];
