@@ -53,7 +53,6 @@
   --shadow-2: 0 2px 0 var(--color-3);
   --shadow-3: 0 0 0 2px color-mix(in srgb, var(--color-3) 70%, transparent);
   --space-1: clamp(16px, 3.4vw, 48px);
-  --bleed: max(var(--space-1), (100% - 1440px) / 2);
   --space-2: clamp(96px, 15vh, 200px);
   /* themed reading-surface roles (flip with light/dark) */
   --page: #F6F4F1;
@@ -281,7 +280,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:contact">
 @layer sections {
-#contact { position: relative; padding: var(--space-2) var(--bleed); background: var(--grad); color: #0B0B0D; overflow: clip; }
+#contact { position: relative; padding: var(--space-2) var(--space-1); background: var(--grad); color: #0B0B0D; overflow: clip; }
 #contact :focus-visible { outline-color: #0B0B0D; }
 #contact .contact__title { font-size: min(19vw, calc((100vw - 2 * var(--space-1)) / (var(--len) * 0.5))); line-height: 0.86; white-space: nowrap; }
 #contact .contact__title .m-dot { background: #0B0B0D; }
@@ -309,16 +308,23 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 </style>
 <style data-8b-part="section:footer">
 @layer sections {
-#footer { position: relative; background: var(--color-2); color: var(--color-1); padding: 24px var(--bleed); }
-#footer .foot__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; font-family: var(--font-2); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: color-mix(in srgb, var(--color-1) 70%, transparent); }
-#footer .foot__social { display: flex; gap: 10px; }
-#footer .foot__social a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--color-1); color: var(--color-2); transition: transform .2s; }
-#footer .foot__social a:hover { transform: translateY(-2px); }
-#footer .foot__social svg { width: 14px; height: 14px; fill: currentColor; }
-#footer .foot__meta { display: flex; align-items: center; gap: 16px; }
-#footer .foot__meta a:hover { color: var(--color-3); }
-#footer .foot__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
-@media (max-width: 680px) { #footer .foot__inner { justify-content: center; text-align: center; } }
+#footer { position: relative; padding: clamp(64px, 9vh, 112px) var(--space-1) 30px; background: #09090B; color: #F6F4F1; overflow: clip; }
+#footer .footer__cta { position: relative; display: inline-flex; align-items: baseline; font-family: var(--font-1); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; font-size: clamp(46px, 9vw, 124px); text-decoration: none; color: #F6F4F1; }
+#footer .footer__cta .m-dot { width: 0.16em; height: 0.16em; }
+#footer .footer__star { position: absolute; top: -6px; right: 2px; width: clamp(32px, 4vw, 52px); height: clamp(32px, 4vw, 52px); }
+#footer .footer__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; margin-top: clamp(44px, 7vh, 80px); padding-top: 34px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 32%, transparent); }
+#footer .footer__brand p { color: rgba(246,244,241,.58); max-width: 32ch; margin-top: 14px; }
+#footer .footer__group { margin-top: 14px; font-size: 13px; font-weight: 600; color: rgba(246,244,241,.72); }
+#footer .footer__wordmark { font-family: var(--font-1); font-weight: 800; font-size: 20px; letter-spacing: -0.04em; }
+#footer .footer__logo { height: 26px; width: auto; display: block; }
+#footer .footer__col { display: grid; align-content: start; gap: 10px; }
+#footer .footer__label { margin-bottom: 4px; color: var(--color-3); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; }
+#footer .footer__col a, #footer .footer__col span { color: rgba(246,244,241,.78); }
+#footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: clamp(30px, 5vh, 52px); padding-top: 22px; border-top: 1.5px dotted color-mix(in srgb, #F6F4F1 28%, transparent); color: rgba(246,244,241,.5); }
+#footer .footer__legal a { color: rgba(246,244,241,.5); }
+#footer .footer__glow { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-weight: 700; filter: drop-shadow(0 0 7px color-mix(in srgb, var(--color-3) 60%, transparent)); }
+@media (min-width: 820px) { #footer .footer__grid { grid-template-columns: 1.7fr 1fr 1fr 1fr; } }
+@media (prefers-reduced-motion: no-preference) { #footer .footer__star { animation: spinslow 24s linear infinite; } }
 }
 </style>
 <style data-8b-part="section:floatwa">
@@ -527,29 +533,11 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 <script data-8b-part="theme-gate">
 try { if (localStorage.getItem('av-theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}
 </script>
-<style data-8b-part="section:polish">
-@layer sections {
-#navigation .nav__brand { background: transparent; padding: 0; min-height: 48px; border-radius: var(--radius-2); transition: background .3s ease, box-shadow .3s ease, padding .3s ease; }
-#navigation .nav__logo { height: clamp(20px, 2vw, 24px); filter: drop-shadow(0 3px 10px color-mix(in srgb, var(--ink) 30%, transparent)); }
-#navigation .nav__logo--dark { display: none; }
-:root[data-theme="dark"] #navigation .nav__logo--light { display: none; }
-:root[data-theme="dark"] #navigation .nav__logo--dark { display: block; }
-#navigation .nav__links, #navigation .nav__theme { background: color-mix(in srgb, var(--page) 60%, transparent); color: var(--ink); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border: 1px solid color-mix(in srgb, var(--ink) 13%, transparent); box-shadow: 0 14px 36px -20px color-mix(in srgb, var(--ink) 55%, transparent); }
-#navigation .nav__links a { color: var(--ink); }
-#navigation.is-stuck .nav__brand { background: color-mix(in srgb, var(--page) 60%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); padding: 0 16px; box-shadow: 0 14px 36px -20px color-mix(in srgb, var(--ink) 55%, transparent); }
-}
-</style>
-<style data-8b-part="section:texture">
-@layer sections {
-body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events: none; opacity: .36; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 160px 160px; }
-.m-link__label::after, .m-link-2::after { background: var(--grad); }
-}
-</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
 <header id="navigation" class="nav" data-8b-section="navigation">
-  <a class="nav__brand" href="index.html" aria-label="The Avenella Agency, back to the top"><img class="nav__logo nav__logo--light" src="logo-agency-onlight.png" alt="The Avenella Agency" width="485" height="72"><img class="nav__logo nav__logo--dark" src="logo-agency-ondark.png" alt="" aria-hidden="true" width="485" height="72"></a>
+  <a class="nav__brand" href="index.html" aria-label="The Avenella Agency, back to the top"><img class="nav__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></a>
   <nav class="nav__links" aria-label="Main">
     <ul data-8b-items=":scope > li">
       <li><a class="m-link-2" href="index.html#work">Services</a></li>
@@ -644,14 +632,36 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 </section>
 </main>
 <footer id="footer">
-  <div class="foot__inner">
-    <span class="foot__copy">&#169; 2026 Avenella Group Ltd</span>
-    <ul class="foot__social" aria-label="Social">
-      <li><a href="https://linkedin.com/company/avenella-group" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
-      <li><a href="https://www.instagram.com/avenellaagency" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
-      <li><a href="https://x.com/avenellaagency" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
-    </ul>
-    <span class="foot__meta"><a href="privacy-policy">Privacy</a><span>Design by <span class="foot__glow">Avenella Agency</span></span></span>
+  <a class="footer__cta" href="#contact">Let's grow<span class="m-dot" aria-hidden="true"></span><svg class="footer__star" viewBox="0 0 41 42" aria-hidden="true"><path d="M25.4,20.9c7.9,4,15.5,6.4,15.5,6.4l-4.7,8.1c0,0-5.9-5.3-13.3-10.1c0.5,8.8,2.1,16.6,2.1,16.6h-9.4c0,0,1.7-7.7,2.1-16.5C10.5,30.1,4.7,35.4,4.7,35.4L0,27.4c0,0,7.5-2.5,15.4-6.4C7.5,16.9,0,14.5,0,14.5l4.7-8.1c0,0,5.8,5.3,13.2,10.1C17.4,7.7,15.7,0,15.7,0h9.4c0,0-1.7,7.7-2.1,16.6c7.4-4.8,13.3-10.1,13.3-10.1l4.7,8.1C40.9,14.5,33.4,16.9,25.4,20.9" fill="var(--color-3)"></path></svg></a>
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="footer__wordmark"><img class="footer__logo" src="logo-agency-ondark.png" alt="The Avenella Agency" width="485" height="72"></div>
+      <p class="m-text">A growth consultancy for brands that have outgrown guesswork. Director-led, across London and Dubai.</p>
+      <p class="footer__group">Part of the <span class="footer__glow">Avenella Group</span>.</p>
+    </div>
+    <nav class="footer__col" aria-label="Explore">
+      <p class="footer__label">Explore</p>
+      <a class="m-link-2" href="index.html#work">Services</a>
+      <a class="m-link-2" href="index.html#again">Work</a>
+      <a class="m-link-2" href="index.html#insights">Insights</a>
+    </nav>
+    <div class="footer__col">
+      <p class="footer__label">Contact</p>
+      <a class="m-link-2" href="mailto:tom@avenella.co.uk">tom@avenella.co.uk</a>
+      <a class="m-link-2" href="https://wa.me/971585724310">+971 58 572 4310</a>
+      <span>London &amp; Dubai</span>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">Follow</p>
+      <a data-8b-placeholder="social" class="m-link-2" href="https://linkedin.com/company/avenella-group">LinkedIn</a>
+      <a data-8b-placeholder="social" class="m-link-2" href="https://www.instagram.com/avenellaagency">Instagram</a>
+      <a data-8b-placeholder="social" class="m-link-2" href="https://x.com/avenellaagency">X</a>
+    </div>
+  </div>
+  <div class="footer__legal m-text-6">
+    <span>© 2026 Avenella Group Ltd · Design by <span class="footer__glow">Avenella Agency</span></span>
+    <span>Made in London and Dubai</span>
+    <a href="privacy-policy">Privacy policy</a>
   </div>
 </footer>
 <a class="float-wa" href="https://wa.me/971585724310" target="_blank" rel="noopener" aria-label="WhatsApp us">
@@ -946,9 +956,6 @@ scan();
 addEventListener('load', scan);
 document.addEventListener('animationstart', scan, true);
 })();
-</script>
-<script data-8b-part="polish:stuck">
-(function(){var n=document.getElementById('navigation');if(!n)return;var t=function(){n.classList.toggle('is-stuck',(window.scrollY||document.documentElement.scrollTop)>48);};t();addEventListener('scroll',t,{passive:true});})();
 </script>
 </body>
 </html>
