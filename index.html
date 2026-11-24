@@ -720,6 +720,27 @@ body::after { display: none !important; }
   #work .work__lead { font-size: 15px; }
 }
 </style>
+<style data-8b-part="round-12">
+#clients { background: #000; border-block: 0; }
+#clients .clients__logo { opacity: 1; }
+#work .work__head h2, #again .again__head h2, #insights .insights__head h2 { font-size: clamp(44px, min(8vw, 13svh), 128px); }
+@media (min-width: 900px) and (orientation: landscape) {
+  #hero .hero__intro { padding-top: clamp(150px, 21svh, 215px); }
+  #work .case--svc { grid-template-rows: 37% minmax(0, 1fr); }
+  #work .case--svc .svc-media { aspect-ratio: auto; height: 100%; }
+  #work .case--svc .svc-body { min-height: 0; overflow: hidden; justify-content: flex-start; gap: clamp(6px, 1.2svh, 12px); padding: clamp(14px, 2.4svh, 26px) clamp(16px, 1.6vw, 26px); }
+  #work .case--svc .svc-ask { font-size: clamp(12px, 1.75svh, 16px); }
+  #work .case--svc h3 { font-size: clamp(20px, 3.9svh, 40px); line-height: 1; }
+  #work .case--svc .svc-line { font-size: clamp(13px, 2.05svh, 19px); line-height: 1.42; }
+  #work .case--svc .svc-tags { flex-wrap: nowrap; overflow: hidden; flex: none; margin-top: auto; -webkit-mask-image: linear-gradient(90deg, #000 80%, transparent); mask-image: linear-gradient(90deg, #000 80%, transparent); }
+  #work .case--svc .svc-tags li { flex: none; }
+}
+@media (max-width: 899px), (orientation: portrait) {
+  #hero { --ap: min(40vw, 20svh); }
+  #hero .hero__stage { top: calc(60% - var(--ap) / 2); z-index: -1; }
+  #hero .hero__title { isolation: isolate; }
+}
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
