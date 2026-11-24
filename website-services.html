@@ -594,7 +594,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 9; pointer-events
 @media (prefers-reduced-motion: reduce) { #navigation .nav__burger path { transition: none; } }
 </style>
 <style data-8b-part="services">
-.svh { position: relative; z-index: 10; isolation: isolate; display: grid; align-items: end; min-height: min(78svh, 820px); padding: clamp(150px, 22vh, 220px) var(--bleed) clamp(48px, 8vh, 88px); background: #201B16; color: #F6F4F1; overflow: hidden; }
+.svh { position: relative; z-index: 10; isolation: isolate; display: grid; align-items: end; min-height: min(78svh, 820px); padding: clamp(170px, 24vh, 240px) var(--bleed) clamp(48px, 8vh, 88px); background: #201B16; color: #F6F4F1; overflow: hidden; }
 .svh__bg { position: absolute; inset: 0; z-index: -1; }
 .svh__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; filter: grayscale(1) contrast(1.05); }
 .svh__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(32,27,22,.35) 0%, rgba(32,27,22,.55) 40%, rgba(32,27,22,.92) 82%, #201B16 100%), linear-gradient(90deg, rgba(32,27,22,.7), rgba(32,27,22,0) 70%); }
@@ -739,6 +739,27 @@ body::after { display: none !important; }
 <style data-8b-part="logo-size">
 #navigation .nav__logo, #navigation .nav__brand img { width: clamp(190px, 17vw, 250px); height: auto; max-width: none; margin-block: -16px; }
 @media (max-width: 520px) { #navigation .nav__logo, #navigation .nav__brand img { width: 132px; max-width: 132px; margin-block: -8px; } }
+</style>
+<style data-8b-part="nav-shrink">
+#navigation { padding-block: 20px; transition: padding .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+#navigation .nav__logo, #navigation .nav__brand img { width: clamp(220px, 20vw, 300px); transition: width .35s cubic-bezier(.2,.8,.2,1); }
+#navigation .nav__menu { width: 52px; height: 52px; transition: width .35s, height .35s, background .3s, color .3s, border-color .3s; }
+#navigation .nav__cta { min-height: 50px; padding-inline: 28px; transition: min-height .35s, padding .35s, background .3s, box-shadow .3s; }
+#navigation.is-scrolled { padding-block: 8px; box-shadow: 0 12px 30px -20px rgba(32,27,22,.7); }
+#navigation.is-scrolled .nav__logo, #navigation.is-scrolled .nav__brand img { width: clamp(150px, 13vw, 190px); }
+#navigation.is-scrolled .nav__menu { width: 40px; height: 40px; }
+#navigation.is-scrolled .nav__cta { min-height: 38px; padding-inline: 20px; }
+@media (max-width: 520px) {
+  #navigation { padding-block: 16px; }
+  #navigation .nav__logo, #navigation .nav__brand img { width: 150px; max-width: 150px; }
+  #navigation .nav__menu { width: 46px; height: 46px; }
+  #navigation .nav__cta { min-height: 42px; padding-inline: 14px; }
+  #navigation.is-scrolled { padding-block: 8px; }
+  #navigation.is-scrolled .nav__logo, #navigation.is-scrolled .nav__brand img { width: 116px; max-width: 116px; }
+  #navigation.is-scrolled .nav__menu { width: 38px; height: 38px; }
+  #navigation.is-scrolled .nav__cta { min-height: 36px; padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { #navigation, #navigation * { transition: none !important; } }
 </style>
 </head>
 <body class="m-text">
@@ -1138,6 +1159,14 @@ watch.observe(element);
 scan();
 addEventListener('load', scan);
 document.addEventListener('animationstart', scan, true);
+})();
+</script>
+<script data-8b-part="section-script:nav-shrink">
+(() => {
+  const nav = document.getElementById('navigation'); if (!nav) return;
+  let on = false;
+  const update = () => { const y = window.scrollY; const next = on ? y > 24 : y > 72; if (next !== on) { on = next; nav.classList.toggle('is-scrolled', on); } };
+  window.addEventListener('scroll', update, { passive: true }); update();
 })();
 </script>
 </body>

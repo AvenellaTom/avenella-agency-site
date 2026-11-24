@@ -604,6 +604,27 @@ body::after { display: none !important; }
 #navigation .nav__logo, #navigation .nav__brand img { width: clamp(190px, 17vw, 250px); height: auto; max-width: none; margin-block: -16px; }
 @media (max-width: 520px) { #navigation .nav__logo, #navigation .nav__brand img { width: 132px; max-width: 132px; margin-block: -8px; } }
 </style>
+<style data-8b-part="nav-shrink">
+#navigation { padding-block: 20px; transition: padding .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+#navigation .nav__logo, #navigation .nav__brand img { width: clamp(220px, 20vw, 300px); transition: width .35s cubic-bezier(.2,.8,.2,1); }
+#navigation .nav__menu { width: 52px; height: 52px; transition: width .35s, height .35s, background .3s, color .3s, border-color .3s; }
+#navigation .nav__cta { min-height: 50px; padding-inline: 28px; transition: min-height .35s, padding .35s, background .3s, box-shadow .3s; }
+#navigation.is-scrolled { padding-block: 8px; box-shadow: 0 12px 30px -20px rgba(32,27,22,.7); }
+#navigation.is-scrolled .nav__logo, #navigation.is-scrolled .nav__brand img { width: clamp(150px, 13vw, 190px); }
+#navigation.is-scrolled .nav__menu { width: 40px; height: 40px; }
+#navigation.is-scrolled .nav__cta { min-height: 38px; padding-inline: 20px; }
+@media (max-width: 520px) {
+  #navigation { padding-block: 16px; }
+  #navigation .nav__logo, #navigation .nav__brand img { width: 150px; max-width: 150px; }
+  #navigation .nav__menu { width: 46px; height: 46px; }
+  #navigation .nav__cta { min-height: 42px; padding-inline: 14px; }
+  #navigation.is-scrolled { padding-block: 8px; }
+  #navigation.is-scrolled .nav__logo, #navigation.is-scrolled .nav__brand img { width: 116px; max-width: 116px; }
+  #navigation.is-scrolled .nav__menu { width: 38px; height: 38px; }
+  #navigation.is-scrolled .nav__cta { min-height: 36px; padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { #navigation, #navigation * { transition: none !important; } }
+</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -1020,6 +1041,14 @@ watch.observe(element);
 scan();
 addEventListener('load', scan);
 document.addEventListener('animationstart', scan, true);
+})();
+</script>
+<script data-8b-part="section-script:nav-shrink">
+(() => {
+  const nav = document.getElementById('navigation'); if (!nav) return;
+  let on = false;
+  const update = () => { const y = window.scrollY; const next = on ? y > 24 : y > 72; if (next !== on) { on = next; nav.classList.toggle('is-scrolled', on); } };
+  window.addEventListener('scroll', update, { passive: true }); update();
 })();
 </script>
 </body>
