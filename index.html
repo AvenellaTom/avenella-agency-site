@@ -800,6 +800,7 @@ body::after { display: none !important; }
 #navigation .nav__menu, #navigation .nav__cta { color: #F6F4F1; border-color: rgba(246,244,241,.7); }
 #navigation .nav__cta:hover, #navigation .nav__cta:focus-visible { color: #201B16; border-color: transparent; }
 </style>
+<style data-8b-part="svc-go">#work .case--svc .svc-go { position: absolute; inset: 0; z-index: 3; border-radius: inherit; } #work .case--svc:hover h3 { color: #E3A27C; }</style>
 </head>
 <body class="m-text">
 <a class="skip" href="#main">Skip to content</a>
@@ -809,7 +810,7 @@ body::after { display: none !important; }
   <nav class="nav__links" aria-label="Main">
     <ul data-8b-items=":scope > li">
       <li><a class="m-link-2" href="services.html">Services</a></li>
-      <li><a class="m-link-2" href="#again">Work</a></li>
+      <li><a class="m-link-2" href="work.html">Work</a></li>
       <li><a class="m-link-2" href="insights.html">Insights</a></li>
     </ul>
   </nav>
@@ -821,7 +822,7 @@ body::after { display: none !important; }
     <ul class="menu__list">
       <li><a href="#hero"><span class="menu__n">01</span><span class="menu__t">Home</span></a></li>
       <li><a href="services.html"><span class="menu__n">02</span><span class="menu__t">What we do</span></a></li>
-      <li><a href="#again"><span class="menu__n">03</span><span class="menu__t">Our work</span></a></li>
+      <li><a href="work.html"><span class="menu__n">03</span><span class="menu__t">Our work</span></a></li>
       <li><a href="insights.html"><span class="menu__n">04</span><span class="menu__t">Insights</span></a></li>
       <li><a href="contact.html"><span class="menu__n">05</span><span class="menu__t">Get in touch</span></a></li>
     </ul>
@@ -894,7 +895,7 @@ body::after { display: none !important; }
             <p class="m-text svc-line">Useful, considered digital experiences, with the content and systems to make them work for your business.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">Websites</li><li class="m-badge">E-commerce</li><li class="m-badge">Apps</li><li class="m-badge">Dashboards</li><li class="m-badge">CRMs</li></ul>
           </div>
-        </li>
+        <a class="svc-go" href="services.html#websites" aria-label="More about this service"></a></li>
         <li class="case case--svc">
           <div class="svc-media"><img src="work-pierluigis.gif" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
@@ -903,7 +904,7 @@ body::after { display: none !important; }
             <p class="m-text svc-line">Give people a reason to stop, pay attention and take the next step. Clear creative, planned for the right channels.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">SEO</li><li class="m-badge">Campaigns</li><li class="m-badge">Editorial</li><li class="m-badge">Paid media</li></ul>
           </div>
-        </li>
+        <a class="svc-go" href="services.html#content" aria-label="More about this service"></a></li>
         <li class="case case--svc">
           <div class="svc-media"><img src="svc-brand.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
@@ -912,7 +913,7 @@ body::after { display: none !important; }
             <p class="m-text svc-line">Find the story, positioning and identity that make your business easier to understand and choose.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">Audits</li><li class="m-badge">Positioning</li><li class="m-badge">Naming &amp; messaging</li><li class="m-badge">Identity</li></ul>
           </div>
-        </li>
+        <a class="svc-go" href="services.html#brand" aria-label="More about this service"></a></li>
         <li class="case case--svc">
           <div class="svc-media"><img src="svc-social.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
@@ -921,7 +922,7 @@ body::after { display: none !important; }
             <p class="m-text svc-line">A clear point of view, consistent content and thoughtful community management. Give every channel a useful role in your business.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">Strategy</li><li class="m-badge">Content</li><li class="m-badge">Community</li><li class="m-badge">Reporting</li></ul>
           </div>
-        </li>
+        <a class="svc-go" href="services.html#social" aria-label="More about this service"></a></li>
         <li class="case case--svc">
           <div class="svc-media"><img src="svc-ai.jpg" alt="" loading="lazy" onerror="this.closest('.svc-media').style.visibility='hidden'"></div>
           <div class="svc-body">
@@ -930,7 +931,7 @@ body::after { display: none !important; }
             <p class="m-text svc-line">Make useful knowledge easier to find and repetitive work easier to handle. Practical tools built around the way your team works.</p>
             <ul class="svc-tags" data-8b-items=":scope > li"><li class="m-badge">AI assistants</li><li class="m-badge">Automation</li><li class="m-badge">Knowledge bases</li><li class="m-badge">Connected tools</li></ul>
           </div>
-        </li>
+        <a class="svc-go" href="services.html#ai" aria-label="More about this service"></a></li>
       </ul>
     </div>
   </div>
@@ -1050,7 +1051,7 @@ body::after { display: none !important; }
       <nav class="footer__col" aria-label="Explore">
         <p class="footer__label">Explore</p>
         <a class="m-link-2" href="services.html">Services</a>
-        <a class="m-link-2" href="#again">Work</a>
+        <a class="m-link-2" href="work.html">Work</a>
         <a class="m-link-2" href="insights.html">Insights</a>
       </nav>
       <div class="footer__col">
@@ -1062,7 +1063,7 @@ body::after { display: none !important; }
     </div>
     <div class="footer__legal m-text-6">
       <span>&copy; 2026 Avenella Group Ltd &middot; Design by <span class="footer__glow">Avenella Agency</span></span>
-      <a href="privacy-policy">Privacy policy</a>
+      <a href="privacy-policy.html">Privacy policy</a>
     </div>
   </div>
 </footer>
